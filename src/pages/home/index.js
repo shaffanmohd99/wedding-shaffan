@@ -2,7 +2,6 @@ import Card from "@/components/reuseable/Card";
 import Typography from "@/components/reuseable/Typography";
 import { BsCalendarEventFill, BsPinMapFill, BsClockFill } from "react-icons/bs";
 
-
 export default function Home() {
   return (
     <div className="relative w-screen n max-h-screen bg-[#faf7f2]">
