@@ -10,10 +10,10 @@ export default function Home() {
         <div className="p-4">
           <div className="pt-8">
             <Typography variant="h5" className="text-[#332117">
-              You're invited to our wedding!
+             {` You're invited to our wedding!`}
             </Typography>
             <Typography variant="sub" className="text-[#332117]/50">
-              {`(PS:This is not your typical wedding)`}
+              (PS:This is not your typical wedding)
             </Typography>
             <Typography
               variant="body"
