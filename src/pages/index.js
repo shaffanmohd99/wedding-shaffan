@@ -132,19 +132,19 @@ export default function Home() {
         >
           <Typography
             variant="h3"
-            className="text-center text-[#faf7f2] text-4xl"
+            className="text-center text-[#faf7f2]"
           >
             Solemnization
           </Typography>
           <Typography
             variant="h3"
-            className="text-center text-[#faf7f2] text-4xl"
+            className="text-center text-[#faf7f2]"
           >
             of
           </Typography>
           <Typography
-            variant="h3"
-            className="text-center text-[#faf7f2] text-5xl font-semibold"
+            variant="h2"
+            className="text-center text-[#faf7f2]  font-semibold"
           >
             Shaffan & Basyirah
           </Typography>

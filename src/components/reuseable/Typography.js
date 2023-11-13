@@ -8,10 +8,19 @@ export default function Typography({ children, className, variant = "subtitle" }
       </h1>
     );
   }
+  if (variant === "h2") {
+    return (
+      <h3
+        className={`font-instrument sm:text-7xl text-5xl text-gray-900 dark:text-white ${className}`}
+      >
+        {children}
+      </h3>
+    );
+  }
   if (variant === "h3") {
     return (
       <h3
-        className={`font-instrument sm:text-6xl text-xl text-gray-900 dark:text-white ${className}`}
+        className={`font-instrument sm:text-6xl text-4xl text-gray-900 dark:text-white ${className}`}
       >
         {children}
       </h3>
