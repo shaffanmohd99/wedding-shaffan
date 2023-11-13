@@ -13,7 +13,7 @@ export default function Home() {
               You're invited to our wedding!
             </Typography>
             <Typography variant="sub" className="text-[#332117]/50">
-              (PS:This is not your typical wedding)
+              {`(PS:This is not your typical wedding)`}
             </Typography>
             <Typography
               variant="body"

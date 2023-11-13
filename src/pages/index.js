@@ -130,16 +130,10 @@ export default function Home() {
         <div
           className={`${great_vibes.className} absolute inset-0 pt-8 flex flex-col gap-2 `}
         >
-          <Typography
-            variant="h3"
-            className="text-center text-[#faf7f2]"
-          >
+          <Typography variant="h3" className="text-center text-[#faf7f2]">
             Solemnization
           </Typography>
-          <Typography
-            variant="h3"
-            className="text-center text-[#faf7f2]"
-          >
+          <Typography variant="h3" className="text-center text-[#faf7f2]">
             of
           </Typography>
           <Typography
