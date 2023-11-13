@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <NextNProgress color="#07519F" options={{ showSpinner: false }} />
+      <NextNProgress color="#bc8c53" options={{ showSpinner: false }} />
       <Head>
         <meta
           name="viewport"

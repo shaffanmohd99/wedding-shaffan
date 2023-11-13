@@ -7,7 +7,7 @@ export const Layout = ({ children }) => {
   const showHeader = router.pathname === "/" ? false : true;
   return (
     <main>
-      {showHeader && <Header />}
+      {/* {showHeader && <Header />} */}
 
       {children}
       {/* <Footer/> */}

@@ -5,10 +5,13 @@ import Typography from "@/components/reuseable/Typography";
 import { BsCalendarEventFill, BsPinMapFill } from "react-icons/bs";
 import Itinerary from "@/components/ui/Itinerary";
 import { Great_Vibes } from "next/font/google";
+import { useRouter } from "next/router";
 
 // const inter = Inter({ subsets: ['latin'] })
 const great_vibes = Great_Vibes({ subsets: ["latin"], weight: "400" });
 export default function Home() {
+  const router = useRouter();
+
   return (
     // <Container
     //   className="flex flex-col justify-center bg-[#fff7ed]"
@@ -124,28 +127,37 @@ export default function Home() {
           alt="gambar"
         />
         <div className="absolute inset-0 bg-[#bc8c53] opacity-60"></div>
-        <div className={`${great_vibes.className} absolute inset-0 pt-8 flex flex-col gap-2 `}>
-          <Typography variant="h3" className="text-center text-[#faf7f2] text-4xl">
-            Solemnization 
-  
+        <div
+          className={`${great_vibes.className} absolute inset-0 pt-8 flex flex-col gap-2 `}
+        >
+          <Typography
+            variant="h3"
+            className="text-center text-[#faf7f2] text-4xl"
+          >
+            Solemnization
           </Typography>
-          <Typography variant="h3" className="text-center text-[#faf7f2] text-4xl">
-             
+          <Typography
+            variant="h3"
+            className="text-center text-[#faf7f2] text-4xl"
+          >
             of
           </Typography>
-          <Typography variant="h3" className="text-center text-[#faf7f2] text-4xl">
-            
-             Shaffan & Basyirah
+          <Typography
+            variant="h3"
+            className="text-center text-[#faf7f2] text-5xl font-semibold"
+          >
+            Shaffan & Basyirah
           </Typography>
         </div>
       </div>
       <div className=" h-[15%] w-full flex items-center px-4">
-          <button
-            type="button"
-            className="inline-flex w-full justify-center items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-[#bc8c53] hover:bg-[#af7947] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#bc8c53]"
-          >
-           Click to find out more
-          </button>
+        <button
+          onClick={() => router.push("/home")}
+          type="button"
+          className="inline-flex w-full justify-center items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-[#bc8c53] hover:bg-[#af7947] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#bc8c53]"
+        >
+          Click to find out more
+        </button>
       </div>
     </div>
   );
