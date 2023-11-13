@@ -14,7 +14,7 @@ export default function Card({
 }) {
   return (
     <div
-      className={`block ${margin} ${maxWidth} ${padding} relative bg-[#e4d5b7] border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 object-cover `}
+      className={`block ${margin} ${maxWidth} ${padding} relative bg-[#bc8c53] border border-gray-200 rounded-3xl shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 object-cover `}
     >
       {children}
     </div>

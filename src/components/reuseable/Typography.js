@@ -36,10 +36,19 @@ export default function Typography({ children, className, variant = "subtitle" }
     );
   }
 
-   if (variant === "subtitle") {
+   if (variant === "body") {
      return (
        <h1
          className={`font-normal sm:text-lg text-md text-gray-700 dark:text-gray-400 ${className}`}
+       >
+         {children}
+       </h1>
+     );
+   }
+   if (variant === "sub") {
+     return (
+       <h1
+         className={`font-normal sm:text-md text-sm text-gray-700 dark:text-gray-400 ${className}`}
        >
          {children}
        </h1>
