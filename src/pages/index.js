@@ -116,7 +116,7 @@ export default function Home() {
     //   </div>
     // </Container>
 
-    <div className="relative w-screen h-screen bg-[#faf7f2]">
+    <div className="relative w-screen h-screen max-h-screen bg-[#faf7f2]">
       <div className="w-full h-[85%] relative">
         <img
           src="/assets/gambar.jpg"
