@@ -14,7 +14,7 @@ export default function Card({
 }) {
   return (
     <div
-      className={`block ${margin} ${maxWidth} ${padding} relative bg-[#bc8c53] border border-gray-200 rounded-3xl shadow  object-cover `}
+      className={`block ${margin} ${maxWidth} ${padding} relative bg-[#bc8c53] rounded-3xl shadow  object-cover `}
     >
       {children}
     </div>
