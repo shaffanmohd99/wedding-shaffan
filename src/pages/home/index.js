@@ -2,9 +2,11 @@ import Card from "@/components/reuseable/Card";
 import Typography from "@/components/reuseable/Typography";
 import { BsCalendarEventFill, BsPinMapFill, BsClockFill } from "react-icons/bs";
 import { BiMaleFemale } from "react-icons/bi";
-
+import CountdownTimer from "@/components/ui/CountdownTimer";
 
 export default function Home() {
+  const targetDate = new Date("2023-12-22T00:00:00");
+
   return (
     <div className="relative w-screen h-screen max-h-screen bg-[#faf7f2]">
       {/* first page */}
@@ -17,6 +19,15 @@ export default function Home() {
             <Typography variant="sub" className="text-[#332117]/50">
               (PS:This is not your typical wedding)
             </Typography>
+            <div>
+              <Typography
+                variant="body"
+                className="text-[#332117] pt-8 font-semibold pb-4"
+              >
+                Countdown To Our Big Day
+              </Typography>
+              <CountdownTimer targetDate={targetDate} />
+            </div>
             <Typography
               variant="body"
               className="text-[#332117] pt-8 font-semibold"
