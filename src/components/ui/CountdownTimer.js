@@ -36,7 +36,7 @@ export default function CountdownTimer({ targetDate }) {
               {days}
             </Typography>
             <Typography variant="body" className="text-white">
-              days
+              Days
             </Typography>
           </div>
           <div className="flex flex-col items-center justify-center">
@@ -44,7 +44,7 @@ export default function CountdownTimer({ targetDate }) {
               {hours}
             </Typography>
             <Typography variant="body" className="text-white">
-              hours
+              Hours
             </Typography>
           </div>
           <div className="flex flex-col items-center justify-center">
@@ -52,7 +52,7 @@ export default function CountdownTimer({ targetDate }) {
               {minutes}
             </Typography>
             <Typography variant="body" className="text-white">
-              minutes
+              Minutes
             </Typography>
           </div>
           <div className="flex flex-col items-center justify-center">
@@ -60,7 +60,7 @@ export default function CountdownTimer({ targetDate }) {
               {seconds}
             </Typography>
             <Typography variant="body" className="text-white">
-              seconds
+              Seconds
             </Typography>
           </div>
         </div>
