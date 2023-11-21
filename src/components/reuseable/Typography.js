@@ -2,7 +2,7 @@ export default function Typography({
   children,
   className,
   variant = "subtitle",
-  
+
 }) {
   if (variant === "h1") {
     return (
@@ -34,7 +34,7 @@ export default function Typography({
   if (variant === "h5") {
     return (
       <h1
-        className={`sm"text-2xl text-lg   text-gray-900  ${className}`}
+        className={`sm"text-2xl text-lg      ${className}`}
       >
         {children}
       </h1>
