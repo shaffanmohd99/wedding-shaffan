@@ -2,6 +2,7 @@ export default function Typography({
   children,
   className,
   variant = "subtitle",
+  
 }) {
   if (variant === "h1") {
     return (

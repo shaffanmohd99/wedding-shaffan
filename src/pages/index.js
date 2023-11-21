@@ -122,7 +122,8 @@ export default function Home() {
     <div className="relative w-screen h-screen max-h-screen bg-[#faf7f2]">
       <div className="w-full h-[75%] relative">
         <img
-          src="/assets/gambar.jpg"
+          src="/assets/gambar_2.jpeg"
+          // src="/assets/gambar.jpg"
           className="h-full w-full select-none object-cover"
           alt="gambar"
         />
@@ -130,15 +131,15 @@ export default function Home() {
         <div
           className={`${great_vibes.className} absolute inset-0 pt-8 flex flex-col gap-2 `}
         >
-          <Typography variant="h3" className="text-center text-[#faf7f2]">
+          <Typography variant="h3" className="text-center text-white">
             Solemnization
           </Typography>
-          <Typography variant="h3" className="text-center text-[#faf7f2]">
+          <Typography variant="h3" className="text-center text-white">
             of
           </Typography>
           <Typography
             variant="h2"
-            className="text-center text-[#faf7f2]  font-semibold"
+            className="text-center text-white  font-semibold"
           >
             Shaffan & Basyirah
           </Typography>
