@@ -51,7 +51,7 @@ export default function AttendanceDialog({ open, setOpen }) {
       console.error("Error sending attendance:", error);
     }
   };
-  
+
   const fakeHandleClose = () => {
     return null;
   };
@@ -61,7 +61,7 @@ export default function AttendanceDialog({ open, setOpen }) {
   };
 
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition.Root show={Boolean(open)} as={Fragment}>
       <Dialog
         as="div"
         className="fixed z-10 inset-0 overflow-y-auto"
