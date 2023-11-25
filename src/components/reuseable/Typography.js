@@ -44,7 +44,7 @@ export default function Typography({
   if (variant === "body") {
     return (
       <h1
-        className={`font-normal sm:text-lg text-md text-gray-700  ${className}`}
+        className={` sm:text-lg text-md text-gray-700  ${className}`}
       >
         {children}
       </h1>

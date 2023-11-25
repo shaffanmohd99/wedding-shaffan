@@ -6,10 +6,12 @@ import CountdownTimer from "@/components/ui/CountdownTimer";
 import IntenaryAkad from "@/components/ui/ItenaryAkad";
 import IntenaryWedding from "@/components/ui/ItenaryWedding";
 import { useState } from "react";
+import AttendanceDialog from "./component/AttendanceDialog";
 
 export default function Home() {
   const targetDate = new Date("2023-12-22T00:00:00");
   const [tab, setTab] = useState("Akad Nikah");
+  const [open, setOpen] = useState(false);
   const tabList = [
     {
       name: "Akad Nikah",
@@ -33,6 +35,15 @@ export default function Home() {
             <Typography variant="sub" className="text-[#332117]/50">
               (PS:This is not your typical wedding)
             </Typography>
+            <div onClick={() => setOpen(true)}>
+              <Typography
+                variant="body"
+                className="text-[#332117] pt-8 font-semibold pb-4"
+              >
+                RSVP here
+              </Typography>
+            </div>
+
             <div>
               <Typography
                 variant="body"
@@ -136,6 +147,7 @@ export default function Home() {
           {tab === "Akad Nikah" && <IntenaryAkad />}
           {tab === "Wedding" && <IntenaryWedding />}
         </div>
+        <AttendanceDialog open={open} setOpen={setOpen} />
       </div>
 
       {/* second page */}
