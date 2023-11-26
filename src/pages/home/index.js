@@ -8,11 +8,16 @@ import IntenaryWedding from "@/components/ui/ItenaryWedding";
 import { useState } from "react";
 import AttendanceDialog from "./component/AttendanceDialog";
 import Button from "@/components/reuseable/Button";
+import Snackbar from "@/components/reuseable/Snackbar";
 
 export default function Home() {
   const targetDate = new Date("2023-12-22T00:00:00");
   const [tab, setTab] = useState("Akad Nikah");
   const [open, setOpen] = useState(false);
+
+  // state for snackbar
+  const [show, setShow] = useState(false);
+  const [isFailed, setIsFailed] = useState(false);
   const tabList = [
     {
       name: "Akad Nikah",
@@ -157,15 +162,22 @@ export default function Home() {
           {tab === "Akad Nikah" && <IntenaryAkad />}
           {tab === "Wedding" && <IntenaryWedding />}
         </div>
-        <AttendanceDialog open={open} setOpen={setOpen} />
+        <AttendanceDialog
+          open={open}
+          setOpen={setOpen}
+          setSnackbarOpen={() => setShow(true)}
+          setFailed={setIsFailed}
+        />
       </div>
 
-      {/* second page */}
-      {/* <div className="w-full h-screen bg-green-500">
-        <Container>
-          <div>test 123 this is second page</div>
-        </Container>
-      </div> */}
+      <Snackbar
+        failed={isFailed}
+        show={show}
+        close={() => setShow(false)}
+        message={
+          isFailed ? "An error just occured" : "Thank you for letting us know"
+        }
+      />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { BsX } from "react-icons/bs";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -7,10 +7,51 @@ import { useForm } from "react-hook-form";
 import Typography from "@/components/reuseable/Typography";
 import Button from "@/components/reuseable/Button";
 import * as yup from "yup";
-import SendAttendance from "./SendAttendance";
+import LoadingButton from "@/components/reuseable/LoadingButton";
 
+export default function AttendanceDialog({
+  open,
+  setOpen,
+  setFailed,
+  setSnackbarOpen,
+}) {
+  //set loading state for api cal
+  const [isLoading, setIsLoading] = useState(false);
 
-export default function AttendanceDialog({ open, setOpen }) {
+  // fucntion to post to mongodb
+  const SendAttendance = async (data) => {
+    setIsLoading(true);
+    if (typeof window !== "undefined") {
+      try {
+        const response = await fetch("/api/wedding", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            data,
+          }),
+        });
+
+        if (response.ok) {
+          setIsLoading(false);
+          setFailed(false);
+
+          console.log("Data saved successfully!");
+        } else {
+          setIsLoading(false);
+          setFailed(true);
+
+          console.log("Something went wrong!");
+        }
+      } catch (error) {
+        setIsLoading(false);
+        setFailed(true);
+
+        console.error("Error making API call:", error);
+      }
+    }
+  };
   const schema = yup.object().shape({
     name: yup.string().required("Name is required"),
     email: yup
@@ -48,9 +89,11 @@ export default function AttendanceDialog({ open, setOpen }) {
       // Only if sendAttendance is successful
       setOpen(false);
       reset({ name: "", email: "", phoneNumber: "", attendance: "" });
+      setSnackbarOpen();
     } catch (error) {
       // Handle error if sendAttendance fails
       console.error("Error sending attendance:", error);
+      setSnackbarOpen();
     }
   };
 
@@ -163,7 +206,7 @@ export default function AttendanceDialog({ open, setOpen }) {
                         </Typography>
                         <select
                           {...register("attendance")}
-                          className="px-2 py-1 border border-[#bc8c53] w-full rounded  outline-none"
+                          className="px-2 py-1 border border-[#bc8c53] w-full rounded  outline-none "
                         >
                           <option value="true">Yes</option>
                           <option value="false">No</option>
@@ -175,19 +218,22 @@ export default function AttendanceDialog({ open, setOpen }) {
                     </div>
 
                     <div className="flex w-full justify-end py-[30px]">
-                      <div className="flex gap-2">
+                      <div className="flex w-full gap-2 justify-end">
                         <Button
+                          width=""
                           onClick={handleClose}
                           variant="outlined"
-                          styles="w-[200px]"
+                          styles=" flex justify-center items-center"
                         >
                           Cancel
                         </Button>
                         <Button
                           onClick={handleSubmit(onSubmit)}
                           variant="contained"
+                          width="w-2/4"
+                          styles=" flex justify-center items-center"
                         >
-                          Submit
+                          {isLoading ? <LoadingButton /> : "Submit"}
                         </Button>
                       </div>
                     </div>
