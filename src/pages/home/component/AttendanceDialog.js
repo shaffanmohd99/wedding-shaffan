@@ -6,10 +6,18 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import Typography from "@/components/reuseable/Typography";
 import Button from "@/components/reuseable/Button";
-import { SendAttendance, getValidationSchema } from "./api";
+import SendAttendance from "./api";
 
 export default function AttendanceDialog({ open, setOpen }) {
- const validationSchema = getValidationSchema();
+  const schema = yup.object().shape({
+    name: yup.string().required("Name is required"),
+    email: yup
+      .string()
+      .email("Invalid email format")
+      .required("Email is required"),
+    phoneNumber: yup.string().required("Phone number is required"),
+    attendance: yup.string().required("Attendance is required"),
+  });
 
   const defaultValues = {
     name: "",
@@ -23,7 +31,7 @@ export default function AttendanceDialog({ open, setOpen }) {
     reset,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(validationSchema),
+    resolver: yupResolver(schema),
     defaultValues, // Set default values for the form fields
   });
 

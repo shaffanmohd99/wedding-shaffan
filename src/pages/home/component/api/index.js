@@ -1,7 +1,7 @@
 import * as yup from "yup";
 
 // function for sending attendace  to mongodb
-export async function SendAttendance(data) {
+export  default async function SendAttendance(data) {
   if (typeof window !== "undefined") {
     try {
       const response = await fetch("/api/wedding", {
@@ -25,18 +25,4 @@ export async function SendAttendance(data) {
     }
   }
 }
-
-//validation 
-export const getValidationSchema = () => {
-  return yup.object().shape({
-    name: yup.string().required("Name is required"),
-    email: yup
-      .string()
-      .email("Invalid email format")
-      .required("Email is required"),
-    phoneNumber: yup.string().required("Phone number is required"),
-    attendance: yup.string().required("Attendance is required"),
-  });
-};
-
 
