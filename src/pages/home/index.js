@@ -9,8 +9,9 @@ import { useState } from "react";
 import AttendanceDialog from "./component/AttendanceDialog";
 import Button from "@/components/reuseable/Button";
 import Snackbar from "@/components/reuseable/Snackbar";
+import { motion } from "framer-motion";
 
-export default function Home() {
+export default function HomePage() {
   const targetDate = new Date("2023-12-22T00:00:00");
   const [tab, setTab] = useState("Akad Nikah");
   const [open, setOpen] = useState(false);
@@ -29,7 +30,7 @@ export default function Home() {
 
   return (
     // h-screen max-h-screen for if one it to be the length of a single page
-    <div className="relative w-screen  bg-[#faf7f2]">
+    <div className="relative w-screen overflow-x-hidden  bg-[#faf7f2]">
       {/* first page */}
       {/* add h-screen for single page  */}
       <div className="w-full  ">
@@ -58,7 +59,20 @@ export default function Home() {
               >
                 Countdown To Our Big Day
               </Typography>
-              <CountdownTimer targetDate={targetDate} />
+              <motion.div
+                initial={{ x: 300 }}
+                whileInView={{
+                  x: 0,
+                  transition: {
+                    type: "spring",
+                    bounce: 0.4,
+                    duration: 1.3,
+                  },
+                }}
+                viewport={{ once: true }}
+              >
+                <CountdownTimer targetDate={targetDate} />
+              </motion.div>
             </div>
             <Typography
               variant="body"
@@ -69,68 +83,134 @@ export default function Home() {
           </div>
           <div className="flex flex-col gap-8 mt-4">
             <div className="w-full flex gap-4">
-              <Card
-                maxWidth="w-1/2"
-                padding="px-2 py-6 flex items-center justify-center"
+              <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                  transition: {
+                    type: "spring",
+                    bounce: 0.4,
+                    duration: 1.3,
+                  },
+                }}
+                viewport={{ once: true }}
+                className="w-1/2"
               >
-                <div className="flex gap-4 items-center justify-center">
-                  <BsCalendarEventFill className="text-[#f4eee0] " size={32} />
-                  <div className="flex flex-col items-center">
-                    <Typography variant="h5" className=" text-white">
-                      22
-                    </Typography>
-                    <Typography variant="h5" className="text-white">
-                      Dec 2023
-                    </Typography>
-                  </div>
-                </div>
-              </Card>
-              <Card maxWidth="w-1/2" padding="px-2 py-6">
-                <div className="flex gap-4 items-center justify-center flex-col">
-                  <BsClockFill className="text-[#f4eee0] " size={32} />
-                  <div className="flex flex-col items-center">
-                    <Typography variant="h5" className=" text-white">
-                      1900 - 2300
-                    </Typography>
-                  </div>
-                </div>
-              </Card>
-            </div>
-            <div className="w-full flex gap-4">
-              <Card
-                maxWidth="w-1/2"
-                padding="px-2 py-6 flex items-center justify-center"
-              >
-                <a
-                  href="https://ul.waze.com/ul?place=ChIJnUuFTtDLzTERJRFCGqHTty0&ll=2.96273520%2C101.75547060&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
-                  target="_blank"
+                <Card
+                  maxWidth="w-full h-full"
+                  padding="px-2 py-6 flex items-center justify-center"
                 >
                   <div className="flex gap-4 items-center justify-center">
-                    <BsPinMapFill className="text-[#f4eee0] " size={32} />
+                    <BsCalendarEventFill
+                      className="text-[#f4eee0] "
+                      size={32}
+                    />
                     <div className="flex flex-col items-center">
                       <Typography variant="h5" className=" text-white">
-                        Evo Mall,
+                        22
                       </Typography>
                       <Typography variant="h5" className="text-white">
-                        Bangi
+                        Dec 2023
                       </Typography>
                     </div>
                   </div>
-                  <Typography variant="sub" className="text-white text-center">
-                    (click here for location)
-                  </Typography>
-                </a>
-              </Card>
-              <Card maxWidth="w-1/2" padding="px-2 py-6">
-                <div className="flex gap-4 items-center justify-center flex-col">
-                  <BiMaleFemale className="text-[#f4eee0] " size={32} />
-                  <div className="flex flex-col items-center">
-                    <Typography variant="h5" className=" text-white">
-                      Dresscode: White
-                    </Typography>
+                </Card>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                  transition: {
+                    type: "spring",
+                    bounce: 0.4,
+                    duration: 1.3,
+                  },
+                }}
+                viewport={{ once: true }}
+                className="w-1/2"
+              >
+                <Card maxWidth="w-full" padding="px-2 py-6">
+                  <div className="flex gap-4 items-center justify-center flex-col">
+                    <BsClockFill className="text-[#f4eee0] " size={32} />
+                    <div className="flex flex-col items-center">
+                      <Typography variant="h5" className=" text-white">
+                        1900 - 2300
+                      </Typography>
+                    </div>
                   </div>
-                </div>
-              </Card>
+                </Card>
+              </motion.div>
+            </div>
+            <div className="w-full flex gap-4">
+              <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                  transition: {
+                    type: "spring",
+                    bounce: 0.4,
+                    duration: 1.3,
+                  },
+                }}
+                viewport={{ once: true }}
+                className="w-1/2"
+              >
+                <Card
+                  maxWidth="w-full h-full"
+                  padding="px-2 py-6 flex items-center justify-center"
+                >
+                  <a
+                    href="https://ul.waze.com/ul?place=ChIJnUuFTtDLzTERJRFCGqHTty0&ll=2.96273520%2C101.75547060&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
+                    target="_blank"
+                  >
+                    <div className="flex gap-4 items-center justify-center">
+                      <BsPinMapFill className="text-[#f4eee0] " size={32} />
+                      <div className="flex flex-col items-center">
+                        <Typography variant="h5" className=" text-white">
+                          Evo Mall,
+                        </Typography>
+                        <Typography variant="h5" className="text-white">
+                          Bangi
+                        </Typography>
+                      </div>
+                    </div>
+                    <Typography
+                      variant="sub"
+                      className="text-white text-center"
+                    >
+                      (Click here for location)
+                    </Typography>
+                  </a>
+                </Card>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{
+                  opacity: 1,
+                  x: 0,
+                  transition: {
+                    type: "spring",
+                    bounce: 0.4,
+                    duration: 1.3,
+                  },
+                }}
+                viewport={{ once: true }}
+                className="w-1/2"
+              >
+                <Card maxWidth="w-full" padding="px-2 py-6">
+                  <div className="flex gap-4 items-center justify-center flex-col">
+                    <BiMaleFemale className="text-[#f4eee0] " size={32} />
+                    <div className="flex flex-col items-center">
+                      <Typography variant="h5" className=" text-white">
+                        Dresscode: White
+                      </Typography>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
             </div>
           </div>
           <Typography
@@ -159,8 +239,22 @@ export default function Home() {
               </div>
             ))}
           </div>
-          {tab === "Akad Nikah" && <IntenaryAkad />}
-          {tab === "Wedding" && <IntenaryWedding />}
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+              transition: {
+                type: "spring",
+                bounce: 0.4,
+                duration: 1.3,
+              },
+            }}
+            viewport={{ once: true }}
+          >
+            {tab === "Akad Nikah" && <IntenaryAkad />}
+            {tab === "Wedding" && <IntenaryWedding />}
+          </motion.div>
         </div>
         <AttendanceDialog
           open={open}

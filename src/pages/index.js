@@ -1,47 +1,50 @@
-import Card from "@/components/reuseable/Card";
-import Container from "@/components/reuseable/Container";
-import Countdown from "@/components/ui/Countdown";
 import Typography from "@/components/reuseable/Typography";
-import { BsCalendarEventFill, BsPinMapFill } from "react-icons/bs";
-import Itinerary from "@/components/ui/Itinerary";
 import { Great_Vibes } from "next/font/google";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
+import HomePage from "./home";
+import { motion } from "framer-motion";
 
 // const inter = Inter({ subsets: ['latin'] })
 const great_vibes = Great_Vibes({ subsets: ["latin"], weight: "400" });
 export default function Home() {
-  const router = useRouter();
+  // const router = useRouter();
 
   return (
-    <div className="relative w-screen h-screen max-h-screen bg-[#faf7f2]">
-      <div className="w-full h-[75%] relative">
-        <img
-          src="/assets/gambar_2.jpeg"
-          // src="/assets/gambar.jpg"
-          className="h-full w-full select-none object-cover"
-          alt="gambar"
-        />
-        {/* <div className="absolute inset-0 bg-[#bc8c53] opacity-60"></div> */}
-        <div
-          className={`${great_vibes.className} absolute inset-0 flex flex-col gap-2  `}
-        >
-          <div className="bg-[#faf7f2] flex  flex-col items-center justify-center rounded px-2 h-[100px] ">
-            <Typography variant="h5" className="text-center text-black">
-              Solemnization of
-            </Typography>
-            {/* <Typography variant="h3" className="text-center text-black">
+    <div
+    // className="max-w-sm flex flex-col items-center justify-center"
+    >
+      <div className="relative w-full h-screen max-h-screen bg-[#faf7f2]">
+        <div className="w-full h-full relative">
+          <img
+            src="/assets/gambar_2.jpeg"
+            // src="/assets/gambar.jpg"
+            className="h-full w-full select-none object-cover"
+            alt="gambar"
+          />
+          {/* <div className="absolute inset-0 bg-[#bc8c53] opacity-60"></div> */}
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ type: "spring", stiffness: 40 }}
+            className={`${great_vibes.className} absolute inset-0 flex flex-col gap-2  `}
+          >
+            <div className="bg-[#faf7f2] flex  flex-col items-center justify-center rounded px-2 h-[100px] ">
+              <Typography variant="h5" className="text-center text-black">
+                Solemnization of
+              </Typography>
+              {/* <Typography variant="h3" className="text-center text-black">
               of
             </Typography> */}
-            <Typography
-              variant="h3"
-              className="text-center text-black  font-semibold"
-            >
-              Shaffan & Basyirah
-            </Typography>
-          </div>
+              <Typography
+                variant="h3"
+                className="text-center text-black  font-semibold"
+              >
+                Shaffan & Basyirah
+              </Typography>
+            </div>
+          </motion.div>
         </div>
-      </div>
-      <div className=" h-[15%] w-full flex items-center px-4">
+        {/* <div className=" h-[15%] w-full flex items-center px-4">
         <button
           onClick={() => router.push("/home")}
           type="button"
@@ -49,7 +52,9 @@ export default function Home() {
         >
           Click to find out more
         </button>
+      </div> */}
       </div>
+      <HomePage />
     </div>
   );
 }

@@ -8,6 +8,7 @@ import Typography from "@/components/reuseable/Typography";
 import Button from "@/components/reuseable/Button";
 import * as yup from "yup";
 import LoadingButton from "@/components/reuseable/LoadingButton";
+import { sendEmail } from "@/pages/api/sendEmail";
 
 export default function AttendanceDialog({
   open,
@@ -85,6 +86,9 @@ export default function AttendanceDialog({
     try {
       // Assuming sendAttendance returns a Promise
       await SendAttendance(data);
+      if (data.attendance) {
+        await sendEmail(data.name, data.email);
+      }
 
       // Only if sendAttendance is successful
       setOpen(false);
