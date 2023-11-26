@@ -6,8 +6,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import Typography from "@/components/reuseable/Typography";
 import Button from "@/components/reuseable/Button";
-import SendAttendance from "./api";
 import * as yup from "yup";
+import SendAttendance from "./SendAttendance";
 
 
 export default function AttendanceDialog({ open, setOpen }) {
