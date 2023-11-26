@@ -1,4 +1,3 @@
-import * as yup from "yup";
 
 // function for sending attendace  to mongodb
 export  default async function SendAttendance(data) {

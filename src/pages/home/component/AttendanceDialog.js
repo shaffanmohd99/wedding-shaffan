@@ -7,6 +7,8 @@ import { useForm } from "react-hook-form";
 import Typography from "@/components/reuseable/Typography";
 import Button from "@/components/reuseable/Button";
 import SendAttendance from "./api";
+import * as yup from "yup";
+
 
 export default function AttendanceDialog({ open, setOpen }) {
   const schema = yup.object().shape({
