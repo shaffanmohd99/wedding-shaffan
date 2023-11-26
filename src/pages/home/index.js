@@ -24,7 +24,7 @@ export default function HomePage() {
       name: "Akad Nikah",
     },
     {
-      name: "Wedding",
+      name: "Reception",
     },
   ];
 
@@ -253,7 +253,7 @@ export default function HomePage() {
             viewport={{ once: true }}
           >
             {tab === "Akad Nikah" && <IntenaryAkad />}
-            {tab === "Wedding" && <IntenaryWedding />}
+            {tab === "Reception" && <IntenaryWedding />}
           </motion.div>
         </div>
         <AttendanceDialog

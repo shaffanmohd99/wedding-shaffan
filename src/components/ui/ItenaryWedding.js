@@ -10,7 +10,7 @@ export default function IntenaryWedding() {
             variant="h5"
             className="text-white text-left  font-semibold "
           >
-            Wedding @ Evo Mall, Bangi
+            Reception @ Evo Mall, Bangi
           </Typography>
         </div>
         <div className="w-full flex flex-col gap-4 mt-[10px]">
