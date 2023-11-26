@@ -1,6 +1,5 @@
-
-// function for sending attendace  to mongodb
-export  default async function SendAttendance(data) {
+// Function for sending attendance to MongoDB
+const SendAttendance = async (data) => {
   if (typeof window !== "undefined") {
     try {
       const response = await fetch("/api/wedding", {
@@ -23,5 +22,6 @@ export  default async function SendAttendance(data) {
       alert("Something went wrong!");
     }
   }
-}
+};
 
+export default SendAttendance;
