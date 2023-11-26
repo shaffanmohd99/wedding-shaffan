@@ -2,47 +2,15 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { BsX } from "react-icons/bs";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import Typography from "@/components/reuseable/Typography";
 import Button from "@/components/reuseable/Button";
-// import sendAttendance from "./postAttendance";
+import { SendAttendance, getValidationSchema } from "./api";
 
 export default function AttendanceDialog({ open, setOpen }) {
-  const sendAttendance = async (data) => {
-    if (typeof window !== "undefined") {
-      try {
-        const response = await fetch("/api/wedding", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            data,
-          }),
-        });
+ const validationSchema = getValidationSchema();
 
-        if (response.ok) {
-          alert("Data saved successfully!");
-        } else {
-          alert("Something went wrong!");
-        }
-      } catch (error) {
-        console.error("Error making API call:", error);
-        alert("Something went wrong!");
-      }
-    }
-  };
-  const schema = yup.object().shape({
-    name: yup.string().required("Name is required"),
-    email: yup
-      .string()
-      .email("Invalid email format")
-      .required("Email is required"),
-    phoneNumber: yup.string().required("Phone number is required"),
-    attendance: yup.string().required("Attendance is required"),
-  });
   const defaultValues = {
     name: "",
     email: "",
@@ -55,7 +23,7 @@ export default function AttendanceDialog({ open, setOpen }) {
     reset,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(validationSchema),
     defaultValues, // Set default values for the form fields
   });
 
@@ -65,7 +33,7 @@ export default function AttendanceDialog({ open, setOpen }) {
 
     try {
       // Assuming sendAttendance returns a Promise
-      await sendAttendance(data);
+      await SendAttendance(data);
 
       // Only if sendAttendance is successful
       setOpen(false);

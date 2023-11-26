@@ -53,7 +53,7 @@ export default function Typography({
   if (variant === "sub") {
     return (
       <h1
-        className={`font-normal sm:text-md text-sm text-gray-700  ${className}`}
+        className={`font-normal sm:text-md text-xs text text-gray-700  ${className}`}
       >
         {children}
       </h1>

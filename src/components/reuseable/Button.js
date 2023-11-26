@@ -25,11 +25,11 @@ export default function Button({
         {children}
       </button>
     );
-  if (variant === "outlined_red")
+  if (variant === "contained_lain")
     return (
       <button
         {...rest}
-        className={`${className} ${width} ${padding} ${height}  border border-redPrimary text-redPrimary sm:text-lg text-md bg-white hover:bg-defaultBg  rounded-md `}
+        className={`${className} ${width} ${padding} ${height}  bg-[#dfb692] disabled:bg-[#EEEEEE] disabled:text-lightGrayText sm:text-lg text-md hover:bg-redSecondary  text-[#faf7f2] rounded-md`}
       >
         {children}
       </button>

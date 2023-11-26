@@ -7,6 +7,7 @@ import IntenaryAkad from "@/components/ui/ItenaryAkad";
 import IntenaryWedding from "@/components/ui/ItenaryWedding";
 import { useState } from "react";
 import AttendanceDialog from "./component/AttendanceDialog";
+import Button from "@/components/reuseable/Button";
 
 export default function Home() {
   const targetDate = new Date("2023-12-22T00:00:00");
@@ -29,19 +30,20 @@ export default function Home() {
       <div className="w-full  ">
         <div className="p-4">
           <div className="pt-8">
-            <Typography variant="h5" className="text-[#332117]">
+            <Typography variant="h3" className="text-[#332117] text-center">
               {` You're invited to our wedding!`}
             </Typography>
-            <Typography variant="sub" className="text-[#332117]/50">
+            {/* <Typography variant="sub" className="text-[#332117]/50">
               (PS:This is not your typical wedding)
+            </Typography> */}
+            <Typography
+              variant="body"
+              className="text-[#332117] pt-8 font-semibold pb-4"
+            >
+              Let us know if you are coming
             </Typography>
             <div onClick={() => setOpen(true)}>
-              <Typography
-                variant="body"
-                className="text-[#332117] pt-8 font-semibold pb-4"
-              >
-                RSVP here
-              </Typography>
+              <Button variant="outlined">Click here to RSVP</Button>
             </div>
 
             <div>
@@ -94,17 +96,25 @@ export default function Home() {
                 maxWidth="w-1/2"
                 padding="px-2 py-6 flex items-center justify-center"
               >
-                <div className="flex gap-4 items-center justify-center">
-                  <BsPinMapFill className="text-[#f4eee0] " size={32} />
-                  <div className="flex flex-col items-center">
-                    <Typography variant="h5" className=" text-white">
-                      Evo Mall,
-                    </Typography>
-                    <Typography variant="h5" className="text-white">
-                      Bangi
-                    </Typography>
+                <a
+                  href="https://ul.waze.com/ul?place=ChIJnUuFTtDLzTERJRFCGqHTty0&ll=2.96273520%2C101.75547060&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
+                  target="_blank"
+                >
+                  <div className="flex gap-4 items-center justify-center">
+                    <BsPinMapFill className="text-[#f4eee0] " size={32} />
+                    <div className="flex flex-col items-center">
+                      <Typography variant="h5" className=" text-white">
+                        Evo Mall,
+                      </Typography>
+                      <Typography variant="h5" className="text-white">
+                        Bangi
+                      </Typography>
+                    </div>
                   </div>
-                </div>
+                  <Typography variant="sub" className="text-white text-center">
+                    (click here for location)
+                  </Typography>
+                </a>
               </Card>
               <Card maxWidth="w-1/2" padding="px-2 py-6">
                 <div className="flex gap-4 items-center justify-center flex-col">
