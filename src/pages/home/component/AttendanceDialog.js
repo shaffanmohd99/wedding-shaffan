@@ -7,9 +7,33 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import Typography from "@/components/reuseable/Typography";
 import Button from "@/components/reuseable/Button";
-import sendAttendance from "./postAttendance";
+// import sendAttendance from "./postAttendance";
 
 export default function AttendanceDialog({ open, setOpen }) {
+  const sendAttendance = async (data) => {
+    if (typeof window !== "undefined") {
+      try {
+        const response = await fetch("/api/wedding", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            data,
+          }),
+        });
+
+        if (response.ok) {
+          alert("Data saved successfully!");
+        } else {
+          alert("Something went wrong!");
+        }
+      } catch (error) {
+        console.error("Error making API call:", error);
+        alert("Something went wrong!");
+      }
+    }
+  };
   const schema = yup.object().shape({
     name: yup.string().required("Name is required"),
     email: yup
