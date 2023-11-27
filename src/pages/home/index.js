@@ -10,7 +10,15 @@ import AttendanceDialog from "./component/AttendanceDialog";
 import Button from "@/components/reuseable/Button";
 import Snackbar from "@/components/reuseable/Snackbar";
 import { motion } from "framer-motion";
-
+const giftList = [
+  "Cookware Set",
+  "Smart Home Devices",
+  "Adventure Experiences",
+  "Subscription Boxes",
+  "Food/Restaurant Vouchers",
+  "Spa Day",
+  "Exercise equipment",
+];
 export default function HomePage() {
   const targetDate = new Date("2023-12-22T00:00:00");
   const [tab, setTab] = useState("Akad Nikah");
@@ -240,7 +248,8 @@ export default function HomePage() {
             ))}
           </div>
           <motion.div
-            initial={{ opacity: 0, x: -100 }}
+            key={tab} // Add the key prop
+            initial={{ opacity: 0, x: tab === "Akad Nikah" ? -100 : 100 }}
             whileInView={{
               opacity: 1,
               x: 0,
@@ -255,7 +264,39 @@ export default function HomePage() {
             {tab === "Akad Nikah" && <IntenaryAkad />}
             {tab === "Reception" && <IntenaryWedding />}
           </motion.div>
+          <Typography
+            variant="body"
+            className="text-[#332117] pt-8 mb-4 font-semibold"
+          >
+            Gift Idea List
+          </Typography>
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+              transition: {
+                type: "spring",
+                bounce: 0.4,
+                duration: 1.3,
+              },
+            }}
+            viewport={{ once: true }}
+          >
+            <Card>
+              <ul className="list-disc  text-white pl-6">
+                {giftList.map((item, index) => (
+                  <li key={index}>
+                    <Typography variant="body" className="text-white ">
+                      {item}
+                    </Typography>
+                  </li>
+                ))}
+              </ul>
+            </Card>
+          </motion.div>
         </div>
+
         <AttendanceDialog
           open={open}
           setOpen={setOpen}
