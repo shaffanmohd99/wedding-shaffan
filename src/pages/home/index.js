@@ -51,13 +51,12 @@ export default function HomePage() {
               variant="body"
               className="text-[#332117] text-justify mt-2"
             >
-              {` This is an intimate wedding celebration. Therefore, we're
-              extending this special invitation for ${" "}
-              ${(
-                <span className="font-bold">one person only</span>
-              )}. Don't worry, a
-              bigger celebration is on the horizon next year, and we can't wait
-              to share the joy with you. Stay tuned for exciting updates!`}
+              This is an intimate wedding celebration. Therefore, we&apos;re
+              extending this special invitation for{" "}
+              <span className="font-bold">one person only</span>. Don&apos;t
+              worry, a bigger celebration is on the horizon next year, and we
+              can&apos;t wait to share the joy with you. Stay tuned for exciting
+              updates!
             </Typography>
             <Typography
               variant="body"
