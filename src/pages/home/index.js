@@ -47,12 +47,17 @@ export default function HomePage() {
             <Typography variant="h3" className="text-[#332117] text-center">
               {` You're invited to our wedding!`}
             </Typography>
-            <Typography variant="body" className="text-[#332117] text-justify mt-2">
-              This is an intimate wedding celebration. Therefore, we're
-              extending this special invitation for{" "}
-              <span className="font-bold">one person only</span>. Don't worry, a
+            <Typography
+              variant="body"
+              className="text-[#332117] text-justify mt-2"
+            >
+              {` This is an intimate wedding celebration. Therefore, we're
+              extending this special invitation for ${" "}
+              ${(
+                <span className="font-bold">one person only</span>
+              )}. Don't worry, a
               bigger celebration is on the horizon next year, and we can't wait
-              to share the joy with you. Stay tuned for exciting updates!
+              to share the joy with you. Stay tuned for exciting updates!`}
             </Typography>
             <Typography
               variant="body"
