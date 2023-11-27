@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <title>LoveShaffanBasyirah</title>
-        <meta name="description" content="LoveShaffanBasyirah" />
+        <meta name="description" content="Solemnization of Shaffan & Basyirah" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <body>

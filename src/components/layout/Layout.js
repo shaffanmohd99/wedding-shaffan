@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import Footer from "../ui/Footer";
 import Header from "../ui/Header";
 import { Roboto } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+
 
 const roboto = Roboto({ subsets: ["latin"], weight: "400" });
 
@@ -13,6 +15,8 @@ export const Layout = ({ children }) => {
       {/* {showHeader && <Header />} */}
 
       {children}
+      <Analytics />
+
       {/* <Footer/> */}
     </main>
   );
