@@ -38,7 +38,7 @@ export default function HomePage() {
 
   return (
     // h-screen max-h-screen for if one it to be the length of a single page
-    <div className="relative w-screen overflow-x-hidden  bg-[#faf7f2]">
+    <div className="relative  overflow-x-hidden  bg-[#faf7f2]">
       {/* first page */}
       {/* add h-screen for single page  */}
       <div className="w-full  ">
@@ -47,9 +47,13 @@ export default function HomePage() {
             <Typography variant="h3" className="text-[#332117] text-center">
               {` You're invited to our wedding!`}
             </Typography>
-            {/* <Typography variant="sub" className="text-[#332117]/50">
-              (PS:This is not your typical wedding)
-            </Typography> */}
+            <Typography variant="body" className="text-[#332117] text-justify mt-2">
+              This is an intimate wedding celebration. Therefore, we're
+              extending this special invitation for{" "}
+              <span className="font-bold">one person only</span>. Don't worry, a
+              bigger celebration is on the horizon next year, and we can't wait
+              to share the joy with you. Stay tuned for exciting updates!
+            </Typography>
             <Typography
               variant="body"
               className="text-[#332117] pt-8 font-semibold pb-4"
