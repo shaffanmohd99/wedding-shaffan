@@ -3,13 +3,12 @@ import Typography from "@/components/reuseable/Typography";
 import { BsCalendarEventFill, BsPinMapFill, BsClockFill } from "react-icons/bs";
 import { BiMaleFemale } from "react-icons/bi";
 import CountdownTimer from "@/components/ui/CountdownTimer";
-import IntenaryAkad from "@/components/ui/ItenaryAkad";
-import IntenaryWedding from "@/components/ui/ItenaryWedding";
 import { useState } from "react";
 import AttendanceDialog from "./component/AttendanceDialog";
 import Button from "@/components/reuseable/Button";
 import Snackbar from "@/components/reuseable/Snackbar";
 import { motion } from "framer-motion";
+import Intenerary from "./component/Itenerary";
 const giftList = [
   "Cookware Set",
   "Smart Home Devices",
@@ -21,20 +20,11 @@ const giftList = [
 ];
 export default function HomePage() {
   const targetDate = new Date("2023-12-22T00:00:00");
-  const [tab, setTab] = useState("Akad Nikah");
   const [open, setOpen] = useState(false);
 
   // state for snackbar
   const [show, setShow] = useState(false);
   const [isFailed, setIsFailed] = useState(false);
-  const tabList = [
-    {
-      name: "Akad Nikah",
-    },
-    {
-      name: "Reception",
-    },
-  ];
 
   return (
     // h-screen max-h-screen for if one it to be the length of a single page
@@ -235,43 +225,9 @@ export default function HomePage() {
           >
             Itinerary
           </Typography>
-          <div className=" h-[45px] w-full  border-b border-[#e4d5b7] flex gap-4">
-            {tabList.map((item, index) => (
-              <div
-                key={index}
-                onClick={() => setTab(item.name)}
-                className="cursor-pointer "
-              >
-                <Typography
-                  variant="h5"
-                  className={`  h-[45px] flex items-center  px-2    ${
-                    item.name === tab
-                      ? " border-b-2 border-[#bc8c53] text-[#bc8c53] font-bold"
-                      : "text-[#332117]"
-                  }`}
-                >
-                  {item.name}
-                </Typography>
-              </div>
-            ))}
+          <div>
+            <Intenerary />
           </div>
-          <motion.div
-            key={tab} // Add the key prop
-            initial={{ opacity: 0, x: tab === "Akad Nikah" ? -100 : 100 }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-              transition: {
-                type: "spring",
-                bounce: 0.4,
-                duration: 1.3,
-              },
-            }}
-            viewport={{ once: true }}
-          >
-            {tab === "Akad Nikah" && <IntenaryAkad />}
-            {tab === "Reception" && <IntenaryWedding />}
-          </motion.div>
           <Typography
             variant="body"
             className="text-[#332117] pt-8 mb-4 font-semibold"
