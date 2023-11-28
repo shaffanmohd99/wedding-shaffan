@@ -56,7 +56,6 @@ export default function MeowMeow() {
     <div className="flex justify-center items-center bg-[#faf7f2] ">
       <div
         className="w-full "
-        // className="max-w-sm flex flex-col items-center justify-center"
       >
         <div className="relative w-full h-screen pt-20 bg-[#faf7f2]">
           <div className="px-4 sm:px-6 lg:px-8">
