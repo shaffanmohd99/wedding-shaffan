@@ -4,9 +4,9 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <title>LoveShaffanBasyirah</title>
+        {/* <title>LoveShaffanBasyirah</title>
         <meta name="description" content="Solemnization of Shaffan & Basyirah" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
       </Head>
       <body>
         <Main />
