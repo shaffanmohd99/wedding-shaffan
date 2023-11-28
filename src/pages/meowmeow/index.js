@@ -24,7 +24,6 @@ export default function MeowMeow() {
           const data = await response.json();
           setIsLoading(false);
           setFetchedData(data);
-          console.log("Data fetched successfully:", data);
           // Do something with the fetched data, if needed
         } else {
           setIsLoading(false);
