@@ -3,6 +3,7 @@ import { Great_Vibes } from "next/font/google";
 // import { useRouter } from "next/router";
 import HomePage from "./home";
 import { motion } from "framer-motion";
+import Head from "next/head";
 
 // const inter = Inter({ subsets: ['latin'] })
 const great_vibes = Great_Vibes({ subsets: ["latin"], weight: "400" });
@@ -11,6 +12,16 @@ export default function Home() {
 
   return (
     <div className="flex justify-center items-center bg-[#faf7f2] ">
+      <Head>
+        <title>
+          Solemnization of Shaffan & Basyirah
+        </title>
+        <meta
+          name="description"
+          content="22nd December 2022 | Bangi,Selangor"
+          key="desc"
+        />
+      </Head>
       <div
         className="w-full max-w-lg"
         // className="max-w-sm flex flex-col items-center justify-center"
