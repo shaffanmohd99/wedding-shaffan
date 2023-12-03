@@ -98,7 +98,7 @@ export default function MeowMeow() {
                 <input
                   type="text"
                   placeholder="Search name"
-                  className="ml-2 px-2 py-0.5 text-body1 text-textPrimary rounded border-none outline-none shadow-none active:border-none"
+                  className="ml-2 px-2 py-0.5 text-body1 text-textPrimary rounded border-none outline-none w-full shadow-none active:border-none"
                   onChange={(e) => handleSearch(e)}
                 />
               </div>
