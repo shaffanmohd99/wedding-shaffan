@@ -1,11 +1,37 @@
 import Pagination from "@/components/reuseable/Pagination";
 import Skeleton from "@/components/reuseable/Skeleton";
+import { BsSearch } from "react-icons/bs";
 import { useEffect, useState } from "react";
+import Typography from "@/components/reuseable/Typography";
 
 export default function MeowMeow() {
   // const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [fetchedData, setFetchedData] = useState([]);
+  const [search, setSearch] = useState("");
+  const [searchTimeout, setSearchTimeout] = useState();
+
+  //search function
+  const handleSearch = (e) => {
+    const words = e.target.value;
+
+    // Clear the previous timeout if it exists
+    if (searchTimeout) {
+      clearTimeout(searchTimeout);
+    }
+
+    // Set a new timeout to trigger the search after 2000 milliseconds (2 seconds)
+    const newSearchTimeout = setTimeout(() => {
+      if (words !== "") {
+        setSearch(`&search=${words}`);
+      } else {
+        setSearch("");
+      }
+    }, 2000);
+
+    // Update the searchTimeout state
+    setSearchTimeout(newSearchTimeout);
+  };
 
   //pagination state
   const [currentPage, setCurrentPage] = useState(1);
@@ -17,7 +43,7 @@ export default function MeowMeow() {
     if (typeof window !== "undefined") {
       try {
         const response = await fetch(
-          `/api/getAttendance?page=${currentPage}&rowsPerPage=${rowsPerCurrentPage}`
+          `/api/getAttendance?page=${currentPage}&rowsPerPage=${rowsPerCurrentPage}${search}`
         );
 
         if (response.ok) {
@@ -49,13 +75,11 @@ export default function MeowMeow() {
     };
 
     getData();
-  }, [rowsPerCurrentPage, currentPage]);
+  }, [rowsPerCurrentPage, currentPage, search]);
 
   return (
     <div className="flex justify-center items-center bg-[#faf7f2] ">
-      <div
-        className="w-full "
-      >
+      <div className="w-full ">
         <div className="relative w-full h-screen pt-20 bg-[#faf7f2]">
           <div className="px-4 sm:px-6 lg:px-8">
             <div className="sm:flex sm:items-center">
@@ -68,7 +92,18 @@ export default function MeowMeow() {
                 </p>
               </div>
             </div>
-            <div className="mt-8 flex flex-col">
+            <div className="flex items-center mt-8">
+              <div className="flex items-center bg-white rounded border border-gray-300 px-3 py-2 w-[450px]">
+                <BsSearch className="text-gray-400" />
+                <input
+                  type="text"
+                  placeholder="Search name"
+                  className="ml-2 px-2 py-0.5 text-body1 text-textPrimary rounded border-none outline-none shadow-none active:border-none"
+                  onChange={(e) => handleSearch(e)}
+                />
+              </div>
+            </div>
+            <div className="mt-4 flex flex-col">
               <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                   <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
@@ -134,10 +169,24 @@ export default function MeowMeow() {
                           </tr>
                         </tbody>
                       )}
+                      {fetchedData?.data?.length < 1 && !isLoading && (
+                        <tbody className="divide-y divide-gray-200 bg-white">
+                          <tr>
+                            <td
+                              colSpan={5}
+                              className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"
+                            >
+                              <div className="py-16 w-full flex items-center justify-center">
+                                <div>Guest not available</div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      )}
                       {fetchedData?.data?.length > 0 && !isLoading && (
                         <tbody className="divide-y divide-gray-200 bg-white">
-                          {fetchedData?.data?.map((item) => (
-                            <tr key={item.id}>
+                          {fetchedData?.data?.map((item, index) => (
+                            <tr key={index}>
                               <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                                 {item.name}
                               </td>

@@ -25,15 +25,28 @@ export default async function handler(req, res) {
       // Calculate skip based on pagination
       const skip = (page - 1) * rowsPerPage;
 
-      // Retrieve data with pagination
+      // Search query parameter
+      const searchQuery = req.query.search || "";
+
+      // Construct the search filter
+      const nameFilter = { name: { $regex: new RegExp(searchQuery, "i") } };
+
+      // Combine search filter with pagination
+      const combinedFilter = { ...nameFilter };
+
+      // -1 for descending order, 1 for ascending order
+      const sortParameter = { _id: -1 }; 
+
+      // Retrieve data with search and pagination
       const data = await collection
-        .find()
+        .find(combinedFilter)
+        .sort(sortParameter)
         .skip(skip)
         .limit(rowsPerPage)
         .toArray();
 
       // Count total documents for pagination info
-      const totalDocuments = await collection.countDocuments();
+      const totalDocuments = await collection.countDocuments(combinedFilter);
 
       // Calculate total pages
       const totalPages = Math.ceil(totalDocuments / rowsPerPage);
