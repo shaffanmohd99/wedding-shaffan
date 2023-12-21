@@ -125,7 +125,7 @@ export default function DeleteDialog({
                   <div className="w-full">
                     <div className="w-full flex flex-col gap-4">
                       <Typography variant="body" className="font-semibold">
-                        {` Are you sure you want to delete ${data.name}?`}
+                        {` Are you sure you want to delete ${data?.name}?`}
                       </Typography>
                     </div>
 
