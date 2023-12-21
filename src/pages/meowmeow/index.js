@@ -3,11 +3,51 @@ import Skeleton from "@/components/reuseable/Skeleton";
 import { BsSearch } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import Typography from "@/components/reuseable/Typography";
+import { FaTrashAlt } from "react-icons/fa";
+import DeleteDialog from "./component/DeleteDialog";
+import Snackbar from "@/components/reuseable/Snackbar";
+import Button from "@/components/reuseable/Button";
+import { CiCirclePlus } from "react-icons/ci";
+import AttendanceDialog from "../home/component/AttendanceDialog";
+import { TbEdit } from "react-icons/tb";
+import EditDialog from "./component/EditDialog";
 
 export default function MeowMeow() {
+  const [openDeletedialog, setOpenDeletedialog] = useState(false);
+  const [openAttendaceDialog, setOpenAttendaceDialog] = useState(false);
+  const [openEditDialog, setOpenEditDialog] = useState(false);
+  const [deleteDialogData, setDeleteDialogData] = useState({});
+  const [editDialogData, setEditDialogData] = useState({});
+
+  //open dialog
+  const OpenEditDialog = (data) => {
+    setOpenEditDialog(true);
+    setEditDialogData(data);
+  };
+  const handleCloseEditDialog = () => {
+    setOpenEditDialog(false); // Close the dialog
+    setEditDialogData({});
+  };
+
+  // state for snackbar
+  const [show, setShow] = useState(false);
+  const [isFailed, setIsFailed] = useState(false);
+  const OpenDeleteDialog = (id, name) => {
+    setOpenDeletedialog(true);
+    setDeleteDialogData({
+      id,
+      name,
+    });
+  };
+
+  const handleCloseDeleteDialog = () => {
+    setOpenDeletedialog(false); // Close the dialog
+    setDeleteDialogData({});
+  };
+
   // const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const [fetchedData, setFetchedData] = useState([]);
+  const [fetchedData, setFetchedData] = useState();
   const [search, setSearch] = useState("");
   const [searchTimeout, setSearchTimeout] = useState();
 
@@ -50,6 +90,7 @@ export default function MeowMeow() {
           const data = await response.json();
           setIsLoading(false);
           setFetchedData(data);
+
           // Do something with the fetched data, if needed
         } else {
           setIsLoading(false);
@@ -92,7 +133,7 @@ export default function MeowMeow() {
                 </p>
               </div>
             </div>
-            <div className="flex items-center mt-8">
+            <div className="flex items-center justify-between mt-8">
               <div className="flex items-center bg-white rounded border border-gray-300 px-3 py-2 w-[450px]">
                 <BsSearch className="text-gray-400" />
                 <input
@@ -101,6 +142,17 @@ export default function MeowMeow() {
                   className="ml-2 px-2 py-0.5 text-body1 text-textPrimary rounded border-none outline-none w-full shadow-none active:border-none"
                   onChange={(e) => handleSearch(e)}
                 />
+              </div>
+              <div>
+                <Button
+                  variant="contained"
+                  onClick={() => setOpenAttendaceDialog(true)}
+                >
+                  <div className="flex gap-2">
+                    <CiCirclePlus size={24} />
+                    <div>Add attendee</div>
+                  </div>
+                </Button>
               </div>
             </div>
             <div className="mt-4 flex flex-col">
@@ -200,13 +252,20 @@ export default function MeowMeow() {
                                 {item.attendance ? "Yes" : "No"}
                               </td>
                               <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                                {/* <a
-                                href="#"
-                                className="text-indigo-600 hover:text-indigo-900"
-                              >
-                                Edit
-                                <span className="sr-only">, {item.name}</span>
-                              </a> */}
+                                <div className="flex gap-4 items-center">
+                                  <TbEdit
+                                    size={18}
+                                    className=" text-gray-500 cursor-pointer hover:text-gray-900"
+                                    onClick={() => OpenEditDialog(item)}
+                                  />
+                                  <FaTrashAlt
+                                    onClick={() =>
+                                      OpenDeleteDialog(item._id, item.name)
+                                    }
+                                    size={18}
+                                    className="text-red-500 hover:text-red-700"
+                                  />
+                                </div>
                               </td>
                             </tr>
                           ))}
@@ -225,6 +284,26 @@ export default function MeowMeow() {
                         setRows={setRowsPerCurrentPage}
                       />
                     )}
+                    <DeleteDialog
+                      open={openDeletedialog}
+                      handleClose={handleCloseDeleteDialog}
+                      data={deleteDialogData}
+                      setSnackbarOpen={() => setShow(true)}
+                      setFailed={setIsFailed}
+                    />
+                    <AttendanceDialog
+                      open={openAttendaceDialog}
+                      setOpen={setOpenAttendaceDialog}
+                      setSnackbarOpen={() => setShow(true)}
+                      setFailed={setIsFailed}
+                    />
+                    <EditDialog
+                      open={openEditDialog}
+                      handleClose={handleCloseEditDialog}
+                      setSnackbarOpen={() => setShow(true)}
+                      setFailed={setIsFailed}
+                      data={editDialogData}
+                    />
                   </div>
                 </div>
               </div>
@@ -232,6 +311,12 @@ export default function MeowMeow() {
           </div>
         </div>
       </div>
+      <Snackbar
+        failed={isFailed}
+        show={show}
+        close={() => setShow(false)}
+        message={isFailed ? "An error just occured" : "Delete successful"}
+      />
     </div>
   );
 }

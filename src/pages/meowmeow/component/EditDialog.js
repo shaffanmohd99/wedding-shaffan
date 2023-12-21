@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { BsX } from "react-icons/bs";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -10,35 +10,35 @@ import * as yup from "yup";
 import LoadingButton from "@/components/reuseable/LoadingButton";
 import { sendEmail } from "@/pages/api/sendEmail";
 
-export default function AttendanceDialog({
+export default function EditDialog({
   open,
-  setOpen,
+  handleClose,
   setFailed,
   setSnackbarOpen,
+  data,
 }) {
   //set loading state for api cal
   const [isLoading, setIsLoading] = useState(false);
+  const updateId = data?._id;
 
   // fucntion to post to mongodb
-  const SendAttendance = async (data) => {
+  const UpdateAttendance = async (id, data) => {
     setIsLoading(true);
     if (typeof window !== "undefined") {
       try {
         const response = await fetch("/api/wedding", {
-          method: "POST",
+          method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            data,
-          }),
+          body: JSON.stringify({ id, data }),
         });
 
         if (response.ok) {
           setIsLoading(false);
           setFailed(false);
 
-          console.log("Data saved successfully!");
+          console.log("Data Updated successfully!");
         } else {
           setIsLoading(false);
           setFailed(true);
@@ -63,11 +63,11 @@ export default function AttendanceDialog({
     attendance: yup.string().required("Attendance is required"),
   });
 
-  const defaultValues = { 
-    name: "",
-    email: "",
-    phoneNumber: "",
-    attendance: "",
+  const defaultValues = {
+    name: data.name,
+    email: data.email,
+    phoneNumber: data.phoneNumber,
+    attendance: data.attendance ? "true" : "false",
   };
   const {
     register,
@@ -79,20 +79,21 @@ export default function AttendanceDialog({
     defaultValues, // Set default values for the form fields
   });
 
+  //set the default value for the input,(need to do this since default value only take the first render)
+  useEffect(() => {
+    reset(defaultValues);
+  }, [data]);
   const onSubmit = async (data) => {
-    // Convert "attendance" to boolean if it's a string representation of true
-    data.attendance = data.attendance === "true" ? true : false;
-
     try {
       // Assuming sendAttendance returns a Promise
-      await SendAttendance(data);
-      if (data.attendance) {
-        await sendEmail(data.name, data.email);
-      }
+      await UpdateAttendance(updateId, data);
+      //   if (data.attendance) {
+      //     await sendEmail(data.name, data.email);
+      //   }
 
       // Only if sendAttendance is successful
-      setOpen(false);
-      reset({ name: "", email: "", phoneNumber: "", attendance: "" });
+      handleClose();
+      //   reset({ name: "", email: "", phoneNumber: "", attendance: "" });
       setSnackbarOpen();
     } catch (error) {
       // Handle error if sendAttendance fails
@@ -104,10 +105,10 @@ export default function AttendanceDialog({
   const fakeHandleClose = () => {
     return null;
   };
-  const handleClose = () => {
-    setOpen(false); // Close the dialog
-    reset({ name: "", email: "", phoneNumber: "", attendance: "" });
-  };
+  //   const handleClose = () => {
+  //     handleClose(); // Close the dialog
+  //     reset({ name: "", email: "", phoneNumber: "", attendance: "" });
+  //   };
 
   return (
     <Transition.Root show={Boolean(open)} as={Fragment}>
@@ -153,7 +154,7 @@ export default function AttendanceDialog({
                       variant="body"
                       className="text-[#332117] font-bold "
                     >
-                      RSVP your attendance
+                      Edit this user detail
                     </Typography>
                     <BsX
                       onClick={handleClose}

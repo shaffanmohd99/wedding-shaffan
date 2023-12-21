@@ -2,6 +2,7 @@
 
 import connectToMongoDB from "../../lib/mongoose";
 import mongoose from "mongoose";
+import { getSession } from "next-auth/react";
 
 const handleError = (res, statusCode, message, error) => {
   console.error(error);
@@ -11,6 +12,12 @@ const handleError = (res, statusCode, message, error) => {
 export default async function handler(req, res) {
   if (req.method === "GET") {
     try {
+      // Check if the user is authenticated
+      // const session = await getSession({ req });
+
+      // if (!session) {
+      //   return res.status(401).json({ message: "Unauthorized" });
+      // }
       // Connect to MongoDB
       await connectToMongoDB();
 
@@ -35,7 +42,7 @@ export default async function handler(req, res) {
       const combinedFilter = { ...nameFilter };
 
       // -1 for descending order, 1 for ascending order
-      const sortParameter = { _id: -1 }; 
+      const sortParameter = { _id: -1 };
 
       // Retrieve data with search and pagination
       const data = await collection

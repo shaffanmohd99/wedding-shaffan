@@ -10,35 +10,35 @@ import * as yup from "yup";
 import LoadingButton from "@/components/reuseable/LoadingButton";
 import { sendEmail } from "@/pages/api/sendEmail";
 
-export default function AttendanceDialog({
+export default function DeleteDialog({
   open,
-  setOpen,
-  setFailed,
+  handleClose,
+  data,
   setSnackbarOpen,
+  setFailed,
 }) {
   //set loading state for api cal
   const [isLoading, setIsLoading] = useState(false);
 
-  // fucntion to post to mongodb
-  const SendAttendance = async (data) => {
+  const fakeHandleClose = () => {
+    return null;
+  };
+  const DeleteAttendance = async (id) => {
     setIsLoading(true);
     if (typeof window !== "undefined") {
       try {
-        const response = await fetch("/api/wedding", {
-          method: "POST",
+        const response = await fetch(`/api/delete/${id}`, {
+          method: "DELETE",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({
-            data,
-          }),
         });
 
         if (response.ok) {
           setIsLoading(false);
           setFailed(false);
 
-          console.log("Data saved successfully!");
+          console.log("Data deleted successfully!");
         } else {
           setIsLoading(false);
           setFailed(true);
@@ -53,60 +53,19 @@ export default function AttendanceDialog({
       }
     }
   };
-  const schema = yup.object().shape({
-    name: yup.string().required("Name is required"),
-    email: yup
-      .string()
-      .email("Invalid email format")
-      .required("Email is required"),
-    phoneNumber: yup.string().required("Phone number is required"),
-    attendance: yup.string().required("Attendance is required"),
-  });
 
-  const defaultValues = { 
-    name: "",
-    email: "",
-    phoneNumber: "",
-    attendance: "",
-  };
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-    defaultValues, // Set default values for the form fields
-  });
-
-  const onSubmit = async (data) => {
-    // Convert "attendance" to boolean if it's a string representation of true
-    data.attendance = data.attendance === "true" ? true : false;
-
+  const onSubmit = async () => {
     try {
       // Assuming sendAttendance returns a Promise
-      await SendAttendance(data);
-      if (data.attendance) {
-        await sendEmail(data.name, data.email);
-      }
-
+      await DeleteAttendance(data.id);
       // Only if sendAttendance is successful
-      setOpen(false);
-      reset({ name: "", email: "", phoneNumber: "", attendance: "" });
+      handleClose();
       setSnackbarOpen();
     } catch (error) {
       // Handle error if sendAttendance fails
       console.error("Error sending attendance:", error);
       setSnackbarOpen();
     }
-  };
-
-  const fakeHandleClose = () => {
-    return null;
-  };
-  const handleClose = () => {
-    setOpen(false); // Close the dialog
-    reset({ name: "", email: "", phoneNumber: "", attendance: "" });
   };
 
   return (
@@ -153,7 +112,7 @@ export default function AttendanceDialog({
                       variant="body"
                       className="text-[#332117] font-bold "
                     >
-                      RSVP your attendance
+                      Delete attendee
                     </Typography>
                     <BsX
                       onClick={handleClose}
@@ -165,60 +124,9 @@ export default function AttendanceDialog({
                 <div className="px-8 w-full">
                   <div className="w-full">
                     <div className="w-full flex flex-col gap-4">
-                      <div>
-                        <Typography variant="body" className="font-semibold">
-                          Name
-                        </Typography>
-                        <input
-                          {...register("name")}
-                          //   placeholder="E.g The date of making Will/Wasiat is not stated"
-                          className="px-2 py-1  border border-[#bc8c53] w-full rounded  appearance-none outline-none "
-                        />
-                        <Typography className="text-[#FF0000]" variant="sub">
-                          {errors.name?.message}
-                        </Typography>
-                      </div>
-                      <div>
-                        <Typography variant="body" className="font-semibold">
-                          Email
-                        </Typography>
-                        <input
-                          {...register("email")}
-                          //   placeholder="E.g The date of making Will/Wasiat is not stated"
-                          className="px-2 py-1  border border-[#bc8c53] w-full rounded  appearance-none outline-none "
-                        />
-                        <Typography className="text-[#FF0000]" variant="sub">
-                          {errors.email?.message}
-                        </Typography>
-                      </div>
-                      <div>
-                        <Typography variant="body" className="font-semibold">
-                          Phone number
-                        </Typography>
-                        <input
-                          {...register("phoneNumber")}
-                          //   placeholder="E.g The date of making Will/Wasiat is not stated"
-                          className="px-2 py-1  border border-[#bc8c53] w-full rounded  appearance-none outline-none "
-                        />
-                        <Typography className="text-[#FF0000]" variant="sub">
-                          {errors.phoneNumber?.message}
-                        </Typography>
-                      </div>
-                      <div>
-                        <Typography variant="body" className="font-semibold">
-                          Are you coming?
-                        </Typography>
-                        <select
-                          {...register("attendance")}
-                          className="px-2 py-1 border border-[#bc8c53] w-full rounded  outline-none "
-                        >
-                          <option value="true">Yes</option>
-                          <option value="false">No</option>
-                        </select>
-                        <Typography className="text-[#FF0000]" variant="sub">
-                          {errors.attendance?.message}
-                        </Typography>
-                      </div>
+                      <Typography variant="body" className="font-semibold">
+                        {` Are you sure you want to delete ${data.name}?`}
+                      </Typography>
                     </div>
 
                     <div className="flex w-full justify-end py-[30px]">
@@ -232,12 +140,12 @@ export default function AttendanceDialog({
                           Cancel
                         </Button>
                         <Button
-                          onClick={handleSubmit(onSubmit)}
+                          onClick={onSubmit}
                           variant="contained"
-                          width="w-2/4"
+                          width="w-[200px]"
                           styles=" flex justify-center items-center"
                         >
-                          {isLoading ? <LoadingButton /> : "Submit"}
+                          {isLoading ? <LoadingButton /> : "Delete"}
                         </Button>
                       </div>
                     </div>

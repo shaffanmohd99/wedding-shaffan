@@ -35,40 +35,48 @@ export default function CountdownTimer({ targetDate }) {
     return (
       <div className="flex w-full ">
         <Card maxWidth="w-full">
-          <div className="grid grid-cols-4 gap-4">
-            <div className="flex flex-col items-center justify-center">
+          {seconds === 0 && days === 0 && hours === 0 && minutes === 0 ? (
+            <div className="flex items-center justify-center">
               <Typography variant="body" className="text-white">
-                {days}
-              </Typography>
-              <Typography variant="body" className="text-white">
-                Days
+                It is today! See you soon
               </Typography>
             </div>
-            <div className="flex flex-col items-center justify-center">
-              <Typography variant="body" className="text-white">
-                {hours}
-              </Typography>
-              <Typography variant="body" className="text-white">
-                Hours
-              </Typography>
+          ) : (
+            <div className="grid grid-cols-4 gap-4">
+              <div className="flex flex-col items-center justify-center">
+                <Typography variant="body" className="text-white">
+                  {days}
+                </Typography>
+                <Typography variant="body" className="text-white">
+                  Days
+                </Typography>
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                <Typography variant="body" className="text-white">
+                  {hours}
+                </Typography>
+                <Typography variant="body" className="text-white">
+                  Hours
+                </Typography>
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                <Typography variant="body" className="text-white">
+                  {minutes}
+                </Typography>
+                <Typography variant="body" className="text-white">
+                  Minutes
+                </Typography>
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                <Typography variant="body" className="text-white">
+                  {seconds}
+                </Typography>
+                <Typography variant="body" className="text-white">
+                  Seconds
+                </Typography>
+              </div>
             </div>
-            <div className="flex flex-col items-center justify-center">
-              <Typography variant="body" className="text-white">
-                {minutes}
-              </Typography>
-              <Typography variant="body" className="text-white">
-                Minutes
-              </Typography>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <Typography variant="body" className="text-white">
-                {seconds}
-              </Typography>
-              <Typography variant="body" className="text-white">
-                Seconds
-              </Typography>
-            </div>
-          </div>
+          )}
         </Card>
       </div>
     );
