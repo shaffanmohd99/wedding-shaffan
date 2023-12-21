@@ -64,10 +64,10 @@ export default function EditDialog({
   });
 
   const defaultValues = {
-    name: data.name,
-    email: data.email,
-    phoneNumber: data.phoneNumber,
-    attendance: data.attendance ? "true" : "false",
+    name: data?.name,
+    email: data?.email,
+    phoneNumber: data?.phoneNumber,
+    attendance: data?.attendance ? "true" : "false",
   };
   const {
     register,
@@ -87,8 +87,8 @@ export default function EditDialog({
     try {
       // Assuming sendAttendance returns a Promise
       await UpdateAttendance(updateId, data);
-      //   if (data.attendance) {
-      //     await sendEmail(data.name, data.email);
+      //   if (data?.attendance) {
+      //     await sendEmail(data?.name, data?.email);
       //   }
 
       // Only if sendAttendance is successful
