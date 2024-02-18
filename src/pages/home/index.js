@@ -34,21 +34,43 @@ export default function HomePage() {
       <div className="w-full  ">
         <div className="p-4">
           <div className="pt-8">
-            <Typography variant="h3" className="text-[#332117] text-center">
-              {` You're invited to our wedding!`}
-            </Typography>
-            <Typography
-              variant="body"
-              className="text-[#332117] text-justify mt-2"
-            >
-              This is an intimate wedding celebration. Therefore, we&apos;re
-              extending this special invitation for{" "}
-              <span className="font-bold">one person only</span>. Don&apos;t
-              worry, a bigger celebration is on the horizon next year, and we
-              can&apos;t wait to share the joy with you. Stay tuned for exciting
-              updates!
-            </Typography>
-            <Typography
+            {/* <Typography variant="h3" className="text-[#332117] text-center">
+              {` Copywriting  juga di sini `}
+            </Typography> */}
+            <div className="flex flex-col">
+              <Typography variant="body" className="text-[#332117] mt-2">
+                Bismillahirrahmanirrahim Assalamualaikum WBT
+              </Typography>
+              <Typography variant="body" className="text-[#332117] font-bold text-center">
+                HJ.ROSLAN BIN MOHAMED &
+              </Typography>
+              <Typography variant="body" className="text-[#332117] font-bold text-center ">
+                HJH.SITI BADARNY SHAMSA&apos;IFAH BINTI HASSAN
+              </Typography>
+              <Typography
+                variant="body"
+                className="text-[#332117] text-justify mt-2"
+              >
+                Dengan penuh kesyukuran, kami ingin menjemput Dato / Datin /
+                Tuan / Puan / Encik / Cik sekeluarga ke Majlis Perkahwinan
+                Puteri kami
+              </Typography>
+              <div className="flex flex-col gap-0 items-center uppercase">
+                <Typography
+                  variant="body"
+                  className="text-[#332117] text-justify mt-2 font-bold"
+                >
+                  Nur Basyirah binti Roslan &
+                </Typography>
+                <Typography
+                  variant="body"
+                  className="text-[#332117] text-justify mt-2 font-bold"
+                >
+                  Norshaffan bin Mohd
+                </Typography>
+              </div>
+            </div>
+            {/* <Typography
               variant="body"
               className="text-[#332117] pt-8 font-semibold pb-4"
             >
@@ -56,9 +78,9 @@ export default function HomePage() {
             </Typography>
             <div onClick={() => setOpen(true)}>
               <Button variant="outlined">Click here to RSVP</Button>
-            </div>
+            </div> */}
 
-            <div>
+            {/* <div>
               <Typography
                 variant="body"
                 className="text-[#332117] pt-8 font-semibold pb-4"
@@ -79,12 +101,12 @@ export default function HomePage() {
               >
                 <CountdownTimer targetDate={targetDate} />
               </motion.div>
-            </div>
+            </div> */}
             <Typography
               variant="body"
               className="text-[#332117] pt-8 font-semibold"
             >
-              Event Details
+              Tentang Majlis
             </Typography>
           </div>
           <div className="flex flex-col gap-8 mt-4">
@@ -114,10 +136,10 @@ export default function HomePage() {
                     />
                     <div className="flex flex-col items-center">
                       <Typography variant="h5" className=" text-white">
-                        22
+                        27
                       </Typography>
                       <Typography variant="h5" className="text-white">
-                        Dec 2023
+                        Apr 2024
                       </Typography>
                     </div>
                   </div>
@@ -142,14 +164,14 @@ export default function HomePage() {
                     <BsClockFill className="text-[#f4eee0] " size={32} />
                     <div className="flex flex-col items-center">
                       <Typography variant="h5" className=" text-white">
-                        1900 - 2300
+                        1100 - 1600
                       </Typography>
                     </div>
                   </div>
                 </Card>
               </motion.div>
             </div>
-            <div className="w-full flex gap-4">
+            <div className="w-full flex gap-4 justify-center">
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{
@@ -162,59 +184,31 @@ export default function HomePage() {
                   },
                 }}
                 viewport={{ once: true }}
-                className="w-1/2"
+                className="w-full"
               >
                 <Card
                   maxWidth="w-full h-full"
                   padding="px-2 py-6 flex items-center justify-center"
                 >
-                  <a
-                    href="https://ul.waze.com/ul?place=ChIJnUuFTtDLzTERJRFCGqHTty0&ll=2.96273520%2C101.75547060&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
-                    target="_blank"
-                  >
+                  <a href="https://waze.com/ul/hw282kz0t2" target="_blank">
                     <div className="flex gap-4 items-center justify-center">
                       <BsPinMapFill className="text-[#f4eee0] " size={32} />
                       <div className="flex flex-col items-center">
                         <Typography variant="h5" className=" text-white">
-                          Evo Mall,
+                          Rinching Terrace
                         </Typography>
                         <Typography variant="h5" className="text-white">
-                          Bangi
+                          Kajang
+                        </Typography>
+                        <Typography
+                          variant="sub"
+                          className="text-white text-center"
+                        >
+                          (Click here for location)
                         </Typography>
                       </div>
                     </div>
-                    <Typography
-                      variant="sub"
-                      className="text-white text-center"
-                    >
-                      (Click here for location)
-                    </Typography>
                   </a>
-                </Card>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 100 }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                  transition: {
-                    type: "spring",
-                    bounce: 0.4,
-                    duration: 1.3,
-                  },
-                }}
-                viewport={{ once: true }}
-                className="w-1/2"
-              >
-                <Card maxWidth="w-full" padding="px-2 py-6">
-                  <div className="flex gap-4 items-center justify-center flex-col">
-                    <BiMaleFemale className="text-[#f4eee0] " size={32} />
-                    <div className="flex flex-col items-center">
-                      <Typography variant="h5" className=" text-white">
-                        Dresscode: White
-                      </Typography>
-                    </div>
-                  </div>
                 </Card>
               </motion.div>
             </div>
@@ -223,18 +217,95 @@ export default function HomePage() {
             variant="body"
             className="text-[#332117] pt-8 font-semibold"
           >
-            Itinerary
+            Atucara Majlis
           </Typography>
-          <div>
-            <Intenerary />
+          <div className="mt-[20px]">
+            {/* <Intenerary /> */}
+            <Card>
+              {/*  */}
+              <div className="w-full flex flex-col gap-4 mt-[10px]">
+                <div className="w-full flex">
+                  <div className="w-1/3">
+                    <Typography
+                      variant="body"
+                      className="text-white text-left  "
+                    >
+                      1100
+                    </Typography>
+                  </div>
+                  <div className="w-2/3">
+                    <Typography
+                      variant="body"
+                      className="text-white text-left  "
+                    >
+                      Ketibaan tetamu
+                    </Typography>
+                  </div>
+                </div>
+                <div className="w-full flex">
+                  <div className="w-1/3">
+                    <Typography
+                      variant="body"
+                      className="text-white text-left  "
+                    >
+                      1200
+                    </Typography>
+                  </div>
+                  <div className="w-2/3">
+                    <Typography
+                      variant="body"
+                      className="text-white text-left  "
+                    >
+                      Ketibaan tetamu terhormat
+                    </Typography>
+                  </div>
+                </div>
+                <div className="w-full flex">
+                  <div className="w-1/3">
+                    <Typography
+                      variant="body"
+                      className="text-white text-left  "
+                    >
+                      1230
+                    </Typography>
+                  </div>
+                  <div className="w-2/3">
+                    <Typography
+                      variant="body"
+                      className="text-white text-left  "
+                    >
+                      Perarakan masuk pengantin
+                    </Typography>
+                  </div>
+                </div>
+                <div className="w-full flex">
+                  <div className="w-1/3">
+                    <Typography
+                      variant="body"
+                      className="text-white text-left  "
+                    >
+                      1600
+                    </Typography>
+                  </div>
+                  <div className="w-2/3">
+                    <Typography
+                      variant="body"
+                      className="text-white text-left  "
+                    >
+                      Majlis bersurai
+                    </Typography>
+                  </div>
+                </div>
+              </div>
+            </Card>
           </div>
-          <Typography
+          {/* <Typography
             variant="body"
             className="text-[#332117] pt-8 mb-4 font-semibold"
           >
             Gift Idea List
-          </Typography>
-          <motion.div
+          </Typography> */}
+          {/* <motion.div
             initial={{ opacity: 0, x: 100 }}
             whileInView={{
               opacity: 1,
@@ -258,25 +329,25 @@ export default function HomePage() {
                 ))}
               </ul>
             </Card>
-          </motion.div>
+          </motion.div> */}
         </div>
 
-        <AttendanceDialog
+        {/* <AttendanceDialog
           open={open}
           setOpen={setOpen}
           setSnackbarOpen={() => setShow(true)}
           setFailed={setIsFailed}
-        />
+        /> */}
       </div>
 
-      <Snackbar
+      {/* <Snackbar
         failed={isFailed}
         show={show}
         close={() => setShow(false)}
         message={
           isFailed ? "An error just occured" : "Thank you for letting us know"
         }
-      />
+      /> */}
     </div>
   );
 }

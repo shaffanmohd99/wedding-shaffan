@@ -14,11 +14,11 @@ export default function Home() {
     <div className="flex justify-center items-center bg-[#faf7f2] ">
       <Head>
         <title>
-          Solemnization of Shaffan & Basyirah
+          Walimatul Urus Shaffan & Basyirah
         </title>
         <meta
           name="description"
-          content="22nd December 2022 | Bangi,Selangor"
+          content="27 April 2024 | Rinching Terrace,Kajang"
           key="desc"
         />
       </Head>
@@ -29,7 +29,7 @@ export default function Home() {
         <div className="relative w-full h-screen max-h-screen bg-[#faf7f2]">
           <div className="w-full h-full relative">
             <img
-              src="/assets/gambar_2.jpeg"
+              src="/assets/gambarhihi.jpeg"
               // src="/assets/gambar.jpg"
               className="h-full w-full select-none object-cover"
               alt="gambar"
@@ -43,7 +43,7 @@ export default function Home() {
             >
               <div className="bg-[#faf7f2] flex  flex-col items-center justify-center rounded px-2 h-[100px] ">
                 <Typography variant="h5" className="text-center text-black">
-                  Solemnization of
+                  Walimatul Urus
                 </Typography>
                 {/* <Typography variant="h3" className="text-center text-black">
                 of
