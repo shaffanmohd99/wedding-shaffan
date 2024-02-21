@@ -7,7 +7,7 @@ export default function Typography({
   if (variant === "h1") {
     return (
       <h1
-        className={`font-instrument sm:text-8xl text-3xl text-gray-900  ${className}`}
+        className={`font-instrument sm:text-5xl text-3xl text-gray-900  ${className}`}
       >
         {children}
       </h1>
@@ -25,7 +25,7 @@ export default function Typography({
   if (variant === "h3") {
     return (
       <h3
-        className={`font-instrument sm:text-6xl text-4xl text-gray-900  ${className}`}
+        className={`font-instrument sm:text-4xl text-4xl text-gray-900  ${className}`}
       >
         {children}
       </h3>

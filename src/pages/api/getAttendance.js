@@ -44,6 +44,15 @@ export default async function handler(req, res) {
       // -1 for descending order, 1 for ascending order
       const sortParameter = { _id: -1 };
 
+      // Retrieve all data
+      const allData = await collection.find({}).toArray();
+      // Calculate summary
+      const totalResponses = allData.length;
+      const totalPax = allData.reduce(
+        (total, entry) => total + parseInt(entry.numberOfPax, 10),
+        0
+      );
+
       // Retrieve data with search and pagination
       const data = await collection
         .find(combinedFilter)
@@ -71,6 +80,10 @@ export default async function handler(req, res) {
           totalDocuments,
           from,
           to,
+        },
+        summary: {
+          totalResponses,
+          totalPax,
         },
       });
     } catch (error) {

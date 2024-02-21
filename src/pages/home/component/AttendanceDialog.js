@@ -37,6 +37,8 @@ export default function AttendanceDialog({
         if (response.ok) {
           setIsLoading(false);
           setFailed(false);
+        
+          await sendEmail(data.name, data.email);
 
           console.log("Data saved successfully!");
         } else {
@@ -54,20 +56,17 @@ export default function AttendanceDialog({
     }
   };
   const schema = yup.object().shape({
-    name: yup.string().required("Name is required"),
-    email: yup
-      .string()
-      .email("Invalid email format")
-      .required("Email is required"),
-    phoneNumber: yup.string().required("Phone number is required"),
-    attendance: yup.string().required("Attendance is required"),
+    name: yup.string().required("Nama diperlukan"),
+    email: yup.string().email("Formal emel salah").required("Emel diperlukan"),
+    phoneNumber: yup.string().required("Nombor telefon diperlukan"),
+    numberOfPax: yup.string().required("Jumlah kehadiran diperlukan"),
   });
 
-  const defaultValues = { 
+  const defaultValues = {
     name: "",
     email: "",
     phoneNumber: "",
-    attendance: "",
+    numberOfPax: "",
   };
   const {
     register,
@@ -81,18 +80,14 @@ export default function AttendanceDialog({
 
   const onSubmit = async (data) => {
     // Convert "attendance" to boolean if it's a string representation of true
-    data.attendance = data.attendance === "true" ? true : false;
 
     try {
       // Assuming sendAttendance returns a Promise
       await SendAttendance(data);
-      if (data.attendance) {
-        await sendEmail(data.name, data.email);
-      }
 
       // Only if sendAttendance is successful
       setOpen(false);
-      reset({ name: "", email: "", phoneNumber: "", attendance: "" });
+      reset({ name: "", email: "", phoneNumber: "", numberOfPax: "" });
       setSnackbarOpen();
     } catch (error) {
       // Handle error if sendAttendance fails
@@ -106,7 +101,7 @@ export default function AttendanceDialog({
   };
   const handleClose = () => {
     setOpen(false); // Close the dialog
-    reset({ name: "", email: "", phoneNumber: "", attendance: "" });
+    reset({ name: "", email: "", phoneNumber: "", numberOfPax: "" });
   };
 
   return (
@@ -153,7 +148,7 @@ export default function AttendanceDialog({
                       variant="body"
                       className="text-[#332117] font-bold "
                     >
-                      RSVP your attendance
+                      Nyatakan kehadiran anda
                     </Typography>
                     <BsX
                       onClick={handleClose}
@@ -167,7 +162,7 @@ export default function AttendanceDialog({
                     <div className="w-full flex flex-col gap-4">
                       <div>
                         <Typography variant="body" className="font-semibold">
-                          Name
+                          Nama
                         </Typography>
                         <input
                           {...register("name")}
@@ -180,7 +175,7 @@ export default function AttendanceDialog({
                       </div>
                       <div>
                         <Typography variant="body" className="font-semibold">
-                          Email
+                          Emel
                         </Typography>
                         <input
                           {...register("email")}
@@ -193,7 +188,7 @@ export default function AttendanceDialog({
                       </div>
                       <div>
                         <Typography variant="body" className="font-semibold">
-                          Phone number
+                          Nombor Telefon
                         </Typography>
                         <input
                           {...register("phoneNumber")}
@@ -206,17 +201,17 @@ export default function AttendanceDialog({
                       </div>
                       <div>
                         <Typography variant="body" className="font-semibold">
-                          Are you coming?
+                          Jumlah Kehadiran
                         </Typography>
-                        <select
-                          {...register("attendance")}
-                          className="px-2 py-1 border border-[#bc8c53] w-full rounded  outline-none "
-                        >
-                          <option value="true">Yes</option>
-                          <option value="false">No</option>
-                        </select>
+                        <input
+                          min="1"
+                          type="number"
+                          {...register("numberOfPax")}
+                          className="px-2 py-1 border border-[#bc8c53] w-full rounded appearance-none outline-none "
+                        />
+
                         <Typography className="text-[#FF0000]" variant="sub">
-                          {errors.attendance?.message}
+                          {errors.numberOfPax?.message}
                         </Typography>
                       </div>
                     </div>

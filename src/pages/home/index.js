@@ -96,15 +96,17 @@ export default function HomePage() {
                 </Typography>
               </div>
             </div>
-            {/* <Typography
-              variant="body"
-              className="text-[#332117] pt-8 font-semibold pb-4"
-            >
-              Let us know if you are coming
-            </Typography>
-            <div onClick={() => setOpen(true)}>
-              <Button variant="outlined">Click here to RSVP</Button>
-            </div> */}
+            <div className="mt-20">
+              {/* <Typography
+                variant="body"
+                className="text-[#332117] pt-8 font-semibold pb-4 "
+              >
+                Let us know if you are coming
+              </Typography> */}
+              <div onClick={() => setOpen(true)}>
+                <Button variant="outlined">Klik disini untuk RSVP</Button>
+              </div>
+            </div>
 
             {/* <div>
               <Typography
@@ -240,7 +242,7 @@ export default function HomePage() {
             variant="body"
             className="text-[#332117] pt-8 font-semibold"
           >
-            Atucara Majlis
+            Aturcara Majlis
           </Typography>
 
           <div className="mt-[20px]">
@@ -264,22 +266,20 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* <AttendanceDialog
+        <AttendanceDialog
           open={open}
           setOpen={setOpen}
           setSnackbarOpen={() => setShow(true)}
           setFailed={setIsFailed}
-        /> */}
+        />
       </div>
 
-      {/* <Snackbar
+      <Snackbar
         failed={isFailed}
         show={show}
         close={() => setShow(false)}
-        message={
-          isFailed ? "An error just occured" : "Thank you for letting us know"
-        }
-      /> */}
+        message={isFailed ? "Sila cuba lagi" : "Terima kasih kerana sudi hadir"}
+      />
     </div>
   );
 }

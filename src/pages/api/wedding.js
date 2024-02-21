@@ -58,7 +58,9 @@ export default async function handler(req, res) {
       // Save the document to the database
       await newAttendance.save();
 
-      res.status(201).json({ message: "Data saved successfully!" });
+      res
+        .status(201)
+        .json({ message: "Data saved successfully!", data: newAttendance });
     } catch (error) {
       await connectToMongoDB();
 
@@ -73,8 +75,6 @@ export default async function handler(req, res) {
 
       // Get the ID and data from the request body
       const { id, data } = req.body;
-      console.log("🚀 ~ file: wedding.js:76 ~ handler ~ data:", data);
-      console.log("🚀 ~ file: wedding.js:76 ~ handler ~ id:", id);
 
       // Validate that the provided ID is a valid ObjectId
       if (!mongoose.Types.ObjectId.isValid(id)) {
