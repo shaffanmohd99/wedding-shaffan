@@ -43,7 +43,7 @@ export default function AtucaraMajlis(){
             </Typography>
           </td>
           <td className="w-2/3">
-            <div className="flex">
+            {/* <div className="flex">
               <Typography variant="body" className="text-white text-left pr-2">
                 -
               </Typography>
@@ -51,15 +51,15 @@ export default function AtucaraMajlis(){
                 Keberangkatan Tiba DYTM Tuanku Raja Muda Perlis & DYTM Tuanku
                 Raja Muda Perlis
               </Typography>
-            </div>
-            <div className="flex">
+            </div> */}
+            {/* <div className="flex">
               <Typography variant="body" className="text-white text-left pr-2">
                 -
               </Typography>
               <Typography variant="body" className="text-white text-left">
                 Majlis Santapan
               </Typography>
-            </div>
+            </div> */}
             <div className="flex">
               <Typography variant="body" className="text-white text-left pr-2">
                 -

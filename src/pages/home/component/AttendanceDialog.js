@@ -37,8 +37,9 @@ export default function AttendanceDialog({
         if (response.ok) {
           setIsLoading(false);
           setFailed(false);
-        
-          await sendEmail(data.name, data.email);
+          if (data.email) {
+            await sendEmail(data.name, data.email);
+          }
 
           console.log("Data saved successfully!");
         } else {
@@ -57,8 +58,8 @@ export default function AttendanceDialog({
   };
   const schema = yup.object().shape({
     name: yup.string().required("Nama diperlukan"),
-    email: yup.string().email("Formal emel salah").required("Emel diperlukan"),
-    phoneNumber: yup.string().required("Nombor telefon diperlukan"),
+    email: yup.string().email("Formal emel salah"),
+    phoneNumber: yup.string(),
     numberOfPax: yup.string().required("Jumlah kehadiran diperlukan"),
   });
 
