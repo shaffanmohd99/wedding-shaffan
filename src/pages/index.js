@@ -19,11 +19,14 @@ export default function Home() {
       <div className="w-full max-w-lg">
         <div className="relative w-full h-screen max-h-screen bg-mainBg ">
           <div
-            className="w-full h-full  bg-center "
+            // className="w-full h-full bg-fixed absolute "
+            className="w-full h-full   bg-fixed "
             style={{
               backgroundImage: "url('/assets/gambarhihi.jpeg')",
-              backgroundSize: "cover",
-              backgroundAttachment: "fixed",
+              backgroundSize: "cover", // Use 'cover' to scale the background image while maintaining its aspect ratio
+              backgroundPosition: "center", // Optional: Center the background image
+              backgroundRepeat: "no-repeat", // Optional: Prevent the background image from repeating
+              minHeight: "100%", // Set a minimum height to maintain aspect ratio
             }}
           >
             {/* <img
