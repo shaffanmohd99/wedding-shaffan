@@ -38,67 +38,52 @@ export default function HomePage() {
       {/* add h-screen for single page  */}
       <div className="w-full  ">
         <div className="p-4">
-          <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-              transition: {
-                type: "spring",
-                bounce: 0.4,
-                duration: 1.3,
-              },
-            }}
-            viewport={{ once: true }}
-          >
-            <div className="bg-primary rounded-3xl p-6">
-              <Typography variant="h5" className="font-bold text-textLight">
-                Ibu Bapa Pengantin
-              </Typography>
-              <div className="w-full h-[300px] mt-5">
-                <img
-                  src="/assets/mama_papa.jpeg"
-                  // src="/assets/gambar.jpg"
-                  className="h-full w-full select-none object-cover rounded"
-                  alt="gambar"
-                />
-              </div>
-              <div className="flex flex-col">
-                <Typography
-                  variant="body"
-                  className="mt-2 text-center text-textLight"
-                >
-                  Assalamualaikum, dengan penuh rasa kesyukuran, kami,
-                </Typography>
-                <Typography
-                  variant="body"
-                  className="text-textLight font-bold text-center"
-                >
-                  Professor. Dr. Madya. Mohd bin Omar
-                </Typography>
-                <Typography
-                  variant="body"
-                  className="text-textLight font-bold text-center "
-                >
-                  &
-                </Typography>
-                <Typography
-                  variant="body"
-                  className="text-textLight font-bold text-center "
-                >
-                  Puan Nor Hayati Binti Mohamad
-                </Typography>
-                <Typography
-                  variant="body"
-                  className="text-textLight text-center mt-2 "
-                >
-                  ingin menjemput Tan Sri | Dato&apos; Sri | Dato&apos; | Datin
-                  | Tuan | Puan ke majlis resepsi putera kami bersama
-                  pasangannya
-                </Typography>
-              </div>
+          <div className="bg-primary rounded-3xl p-6">
+            <Typography variant="h5" className="font-bold text-textLight">
+              Ibu Bapa Pengantin
+            </Typography>
+            <div className="w-full h-[300px] mt-5">
+              <img
+                src="/assets/mama_papa.jpeg"
+                // src="/assets/gambar.jpg"
+                className="h-full w-full select-none object-cover rounded"
+                alt="gambar"
+              />
             </div>
-          </motion.div>
+            <div className="flex flex-col">
+              <Typography
+                variant="body"
+                className="mt-2 text-center text-textLight"
+              >
+                Assalamualaikum, dengan penuh rasa kesyukuran, kami,
+              </Typography>
+              <Typography
+                variant="body"
+                className="text-textLight font-bold text-center"
+              >
+                Professor. Dr. Madya. Mohd bin Omar
+              </Typography>
+              <Typography
+                variant="body"
+                className="text-textLight font-bold text-center "
+              >
+                &
+              </Typography>
+              <Typography
+                variant="body"
+                className="text-textLight font-bold text-center "
+              >
+                Puan Nor Hayati Binti Mohamad
+              </Typography>
+              <Typography
+                variant="body"
+                className="text-textLight text-center mt-2 "
+              >
+                ingin menjemput Tan Sri | Dato&apos; Sri | Dato&apos; | Datin |
+                Tuan | Puan ke majlis resepsi putera kami bersama pasangannya
+              </Typography>
+            </div>
+          </div>
 
           <div className="flex flex-col gap-8 mt-8">
             <div className="w-full flex gap-4">
