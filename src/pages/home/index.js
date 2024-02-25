@@ -33,104 +33,73 @@ export default function HomePage() {
 
   return (
     // h-screen max-h-screen for if one it to be the length of a single page
-    <div className="relative  overflow-x-hidden  bg-mainBg">
+    <div className="relative  overflow-x-hidden   bg-mainBg">
       {/* first page */}
       {/* add h-screen for single page  */}
       <div className="w-full  ">
         <div className="p-4">
-          <div className="pt-8">
-            {/* <Typography variant="h3" className="text-textMain text-center">
-              {` Copywriting  juga di sini `}
-            </Typography> */}
-            <div className="flex flex-col">
-              <Typography
-                variant="body"
-                className="text-textMain mt-2 text-center"
-              >
-                Bismillahirrahmanirrahim Assalamualaikum WBT
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+              transition: {
+                type: "spring",
+                bounce: 0.4,
+                duration: 1.3,
+              },
+            }}
+            viewport={{ once: true }}
+          >
+            <div className="bg-primary rounded-3xl p-6">
+              <Typography variant="h5" className="font-bold text-textLight">
+                Ibu Bapa Pengantin
               </Typography>
-              <Typography
-                variant="body"
-                className="text-textMain font-bold text-center"
-              >
-                Haji Roslan Mohamad <span className="text-[10px]">S.M.K.</span>
-              </Typography>
-              <Typography
-                variant="body"
-                className="text-textMain font-bold text-center "
-              >
-                &
-              </Typography>
-              <Typography
-                variant="body"
-                className="text-textMain font-bold text-center "
-              >
-                Hajah Siti Badarny Shamsai&apos;fah Hassan
-              </Typography>
-              <Typography
-                variant="body"
-                className="text-textMain text-center mt-2 "
-              >
-                Dengan penuh rasa kesyukuran, sukacita menjemput Tan Sri |
-                Dato&apos; Sri | Dato&apos; | Datin | Tuan | Puan ke Majlis
-                Perkahwinan puteri kami bersama pasangannya
-              </Typography>
-              <div className={`${great_vibes.className}`}>
+              <div className="w-full h-[300px] mt-5">
+                <img
+                  src="/assets/mama_papa.jpeg"
+                  // src="/assets/gambar.jpg"
+                  className="h-full w-full select-none object-cover rounded"
+                  alt="gambar"
+                />
+              </div>
+              <div className="flex flex-col">
                 <Typography
-                  variant="h1"
-                  className="text-textSecondary text-center mt-2 font-bold"
+                  variant="body"
+                  className="mt-2 text-center text-textLight"
                 >
-                  Nur Basyirah Roslan
+                  Assalamualaikum, dengan penuh rasa kesyukuran, kami,
                 </Typography>
                 <Typography
-                  variant="h3"
-                  className="text-textSecondary text-center mt-2 font-bold"
+                  variant="body"
+                  className="text-textLight font-bold text-center"
+                >
+                  Professor. Dr. Madya. Mohd bin Omar
+                </Typography>
+                <Typography
+                  variant="body"
+                  className="text-textLight font-bold text-center "
                 >
                   &
                 </Typography>
                 <Typography
-                  variant="h1"
-                  className="text-textSecondary text-center  font-bold"
+                  variant="body"
+                  className="text-textLight font-bold text-center "
                 >
-                  Norshaffan Mohd
+                  Puan Nor Hayati Binti Mohamad
+                </Typography>
+                <Typography
+                  variant="body"
+                  className="text-textLight text-center mt-2 "
+                >
+                  ingin menjemput Tan Sri | Dato&apos; Sri | Dato&apos; | Datin
+                  | Tuan | Puan ke majlis resepsi putera kami bersama
+                  pasangannya
                 </Typography>
               </div>
             </div>
-            <div className="mt-20">
-              {/* <Typography
-                variant="body"
-                className="text-textMain pt-8 font-semibold pb-4 "
-              >
-                Let us know if you are coming
-              </Typography> */}
-              <div onClick={() => setOpen(true)}>
-                <Button variant="outlined">Klik disini untuk RSVP</Button>
-              </div>
-            </div>
+          </motion.div>
 
-            {/* <div>
-              <Typography
-                variant="body"
-                className="text-textMain pt-8 font-semibold pb-4"
-              >
-                Countdown To Our Big Day
-              </Typography>
-              <motion.div
-                initial={{ x: 300 }}
-                whileInView={{
-                  x: 0,
-                  transition: {
-                    type: "spring",
-                    bounce: 0.4,
-                    duration: 1.3,
-                  },
-                }}
-                viewport={{ once: true }}
-              >
-                <CountdownTimer targetDate={targetDate} />
-              </motion.div>
-            </div> */}
-          </div>
           <div className="flex flex-col gap-8 mt-8">
             <div className="w-full flex gap-4">
               <motion.div

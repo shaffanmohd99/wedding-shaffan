@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 import Footer from "../ui/Footer";
 import Header from "../ui/Header";
-import { Roboto } from "next/font/google";
+import { Roboto, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
-
+const inter = Inter({ subsets: ["latin"] });
 
 const roboto = Roboto({ subsets: ["latin"], weight: "400" });
 
@@ -11,7 +11,7 @@ export const Layout = ({ children }) => {
   const router = useRouter();
   const showHeader = router.pathname === "/" ? false : true;
   return (
-    <main className={roboto.className}>
+    <main className={inter.className}>
       {/* {showHeader && <Header />} */}
 
       {children}
