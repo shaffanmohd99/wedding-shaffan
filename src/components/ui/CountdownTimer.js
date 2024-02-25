@@ -37,41 +37,41 @@ export default function CountdownTimer({ targetDate }) {
         <Card maxWidth="w-full">
           {seconds === 0 && days === 0 && hours === 0 && minutes === 0 ? (
             <div className="flex items-center justify-center">
-              <Typography variant="body" className="text-white">
+              <Typography variant="body" className="text-textLight">
                 It is today! See you soon
               </Typography>
             </div>
           ) : (
             <div className="grid grid-cols-4 gap-4">
               <div className="flex flex-col items-center justify-center">
-                <Typography variant="body" className="text-white">
+                <Typography variant="body" className="text-textLight">
                   {days}
                 </Typography>
-                <Typography variant="body" className="text-white">
+                <Typography variant="body" className="text-textLight">
                   Days
                 </Typography>
               </div>
               <div className="flex flex-col items-center justify-center">
-                <Typography variant="body" className="text-white">
+                <Typography variant="body" className="text-textLight">
                   {hours}
                 </Typography>
-                <Typography variant="body" className="text-white">
+                <Typography variant="body" className="text-textLight">
                   Hours
                 </Typography>
               </div>
               <div className="flex flex-col items-center justify-center">
-                <Typography variant="body" className="text-white">
+                <Typography variant="body" className="text-textLight">
                   {minutes}
                 </Typography>
-                <Typography variant="body" className="text-white">
+                <Typography variant="body" className="text-textLight">
                   Minutes
                 </Typography>
               </div>
               <div className="flex flex-col items-center justify-center">
-                <Typography variant="body" className="text-white">
+                <Typography variant="body" className="text-textLight">
                   {seconds}
                 </Typography>
-                <Typography variant="body" className="text-white">
+                <Typography variant="body" className="text-textLight">
                   Seconds
                 </Typography>
               </div>

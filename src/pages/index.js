@@ -11,14 +11,12 @@ export default function Home() {
   // const router = useRouter();
 
   return (
-    <div className="flex justify-center items-center bg-[#faf7f2] ">
+    <div className="flex justify-center items-center bg-mainBg ">
       <Head>
-        <title>
-          Walimatul Urus Shaffan & Basyirah
-        </title>
+        <title>Walimatul Urus Shaffan & Basyirah</title>
         <meta
           name="description"
-          content="27 April 2024 | Rinching Terrace,Kajang"
+          content="11 Mei 2024 | Sungai Long Golf & Country Club, Kajang"
           key="desc"
         />
       </Head>
@@ -26,7 +24,7 @@ export default function Home() {
         className="w-full max-w-lg"
         // className="max-w-sm flex flex-col items-center justify-center"
       >
-        <div className="relative w-full h-screen max-h-screen bg-[#faf7f2]">
+        <div className="relative w-full h-screen max-h-screen bg-mainBg">
           <div className="w-full h-full relative">
             <img
               src="/assets/gambarhihi.jpeg"
@@ -34,14 +32,14 @@ export default function Home() {
               className="h-full w-full select-none object-cover"
               alt="gambar"
             />
-            {/* <div className="absolute inset-0 bg-[#bc8c53] opacity-60"></div> */}
+            {/* <div className="absolute inset-0 bg-primary opacity-60"></div> */}
             <motion.div
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ type: "spring", stiffness: 40 }}
               className={`${great_vibes.className} absolute inset-0 flex flex-col gap-2  `}
             >
-              <div className="bg-[#faf7f2] flex  flex-col items-center justify-center rounded px-2 h-[100px] ">
+              <div className="bg-mainBg flex  flex-col items-center justify-center rounded px-2 h-[100px] ">
                 <Typography variant="h5" className="text-center text-black">
                   Walimatul Urus
                 </Typography>
@@ -61,7 +59,7 @@ export default function Home() {
           <button
             onClick={() => router.push("/home")}
             type="button"
-            className="inline-flex w-full justify-center items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-[#bc8c53] hover:bg-[#af7947] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#bc8c53]"
+            className="inline-flex w-full justify-center items-center px-5 py-2 border border-transparent text-base font-medium rounded-full shadow-sm text-textLight bg-primary hover:bg-[#af7947] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
           >
             Click to find out more
           </button>

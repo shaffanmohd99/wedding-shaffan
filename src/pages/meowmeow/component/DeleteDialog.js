@@ -104,13 +104,13 @@ export default function DeleteDialog({
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="relative inline-block  bg-[#faf7f2] rounded-lg  text-left overflow-hidden shadow-xl align-middle transform transition-all w-full sm:w-[50%]">
+            <div className="relative inline-block  bg-mainBg rounded-lg  text-left overflow-hidden shadow-xl align-middle transform transition-all w-full sm:w-[50%]">
               <div className="w-full ">
                 <div className="border-grayLine border-b">
                   <div className="w-full flex justify-between items-center py-4 px-8  ">
                     <Typography
                       variant="body"
-                      className="text-[#332117] font-bold "
+                      className="text-textMain font-bold "
                     >
                       Delete attendee
                     </Typography>

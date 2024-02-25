@@ -119,9 +119,9 @@ export default function MeowMeow() {
   }, [rowsPerCurrentPage, currentPage, search]);
 
   return (
-    <div className="flex justify-center items-center bg-[#faf7f2] ">
+    <div className="flex justify-center items-center bg-mainBg ">
       <div className="w-full ">
-        <div className="relative w-full h-screen pt-20 bg-[#faf7f2]">
+        <div className="relative w-full h-screen pt-20 bg-mainBg">
           <div className="px-4 sm:px-6 lg:px-8">
             <div className="sm:flex sm:items-center">
               <div className="sm:flex-auto">
@@ -164,25 +164,25 @@ export default function MeowMeow() {
                         <tr>
                           <th
                             scope="col"
-                            className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-6"
+                            className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-textLight sm:pl-6"
                           >
                             Name
                           </th>
                           <th
                             scope="col"
-                            className="px-3 py-3.5 text-left text-sm font-semibold text-white"
+                            className="px-3 py-3.5 text-left text-sm font-semibold text-textLight"
                           >
                             Email
                           </th>
                           <th
                             scope="col"
-                            className="px-3 py-3.5 text-left text-sm font-semibold text-white"
+                            className="px-3 py-3.5 text-left text-sm font-semibold text-textLight"
                           >
                             Phone number
                           </th>
                           <th
                             scope="col"
-                            className="px-3 py-3.5 text-left text-sm font-semibold text-white"
+                            className="px-3 py-3.5 text-left text-sm font-semibold text-textLight"
                           >
                             Attendance
                           </th>

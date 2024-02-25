@@ -11,7 +11,7 @@ export default function Button({
     return (
       <button
         {...rest}
-        className={`${className} ${width} ${padding} ${height}  bg-[#bc8c53] disabled:bg-[#EEEEEE] disabled:text-lightGrayText sm:text-lg text-md hover:bg-redSecondary  text-[#faf7f2] rounded-md`}
+        className={`${className} ${width} ${padding} ${height}  bg-primary disabled:bg-disablebBg disabled:text-lightGrayText sm:text-lg text-md hover:bg-redSecondary  text-mainBg rounded-md`}
       >
         {children}
       </button>
@@ -20,7 +20,7 @@ export default function Button({
     return (
       <button
         {...rest}
-        className={`${className} ${width} ${padding} ${height}  border border-[#bc8c53] sm:text-lg text-md bg-[#faf7f2] hover:bg-defaultBg text-[#bc8c53] rounded-md `}
+        className={`${className} ${width} ${padding} ${height}  border border-primary sm:text-lg text-md bg-mainBg hover:bg-defaultBg text-primary rounded-md `}
       >
         {children}
       </button>
@@ -29,7 +29,7 @@ export default function Button({
     return (
       <button
         {...rest}
-        className={`${className} ${width} ${padding} ${height}  bg-[#dfb692] disabled:bg-[#EEEEEE] disabled:text-lightGrayText sm:text-lg text-md hover:bg-redSecondary  text-[#faf7f2] rounded-md`}
+        className={`${className} ${width} ${padding} ${height}  bg-[#dfb692] disabled:bg-disablebBg disabled:text-lightGrayText sm:text-lg text-md hover:bg-redSecondary  text-mainBg rounded-md`}
       >
         {children}
       </button>

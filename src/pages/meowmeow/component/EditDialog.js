@@ -146,13 +146,13 @@ export default function EditDialog({
             leaveFrom="opacity-100 translate-y-0 sm:scale-100"
             leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
-            <div className="relative inline-block  bg-[#faf7f2] rounded-lg  text-left overflow-hidden shadow-xl align-middle transform transition-all w-full sm:w-[50%]">
+            <div className="relative inline-block  bg-mainBg rounded-lg  text-left overflow-hidden shadow-xl align-middle transform transition-all w-full sm:w-[50%]">
               <div className="w-full ">
                 <div className="border-grayLine border-b">
                   <div className="w-full flex justify-between items-center py-4 px-8  ">
                     <Typography
                       variant="body"
-                      className="text-[#332117] font-bold "
+                      className="text-textMain font-bold "
                     >
                       Edit this user detail
                     </Typography>
@@ -173,7 +173,7 @@ export default function EditDialog({
                         <input
                           {...register("name")}
                           //   placeholder="E.g The date of making Will/Wasiat is not stated"
-                          className="px-2 py-1  border border-[#bc8c53] w-full rounded  appearance-none outline-none "
+                          className="px-2 py-1  border border-primary w-full rounded  appearance-none outline-none "
                         />
                         <Typography className="text-[#FF0000]" variant="sub">
                           {errors.name?.message}
@@ -186,7 +186,7 @@ export default function EditDialog({
                         <input
                           {...register("email")}
                           //   placeholder="E.g The date of making Will/Wasiat is not stated"
-                          className="px-2 py-1  border border-[#bc8c53] w-full rounded  appearance-none outline-none "
+                          className="px-2 py-1  border border-primary w-full rounded  appearance-none outline-none "
                         />
                         <Typography className="text-[#FF0000]" variant="sub">
                           {errors.email?.message}
@@ -199,7 +199,7 @@ export default function EditDialog({
                         <input
                           {...register("phoneNumber")}
                           //   placeholder="E.g The date of making Will/Wasiat is not stated"
-                          className="px-2 py-1  border border-[#bc8c53] w-full rounded  appearance-none outline-none "
+                          className="px-2 py-1  border border-primary w-full rounded  appearance-none outline-none "
                         />
                         <Typography className="text-[#FF0000]" variant="sub">
                           {errors.phoneNumber?.message}
@@ -211,7 +211,7 @@ export default function EditDialog({
                         </Typography>
                         <select
                           {...register("attendance")}
-                          className="px-2 py-1 border border-[#bc8c53] w-full rounded  outline-none "
+                          className="px-2 py-1 border border-primary w-full rounded  outline-none "
                         >
                           <option value="true">Yes</option>
                           <option value="false">No</option>

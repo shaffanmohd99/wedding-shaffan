@@ -4,7 +4,7 @@ export default function LoadingButton() {
       <div role="status">
         <svg
           aria-hidden="true"
-          className="mr-2 h-6 w-6 animate-spin fill-[#faf7f2] text-[#bc7b53] "
+          className="mr-2 h-6 w-6 animate-spin fill-mainBg text-[#bc7b53] "
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

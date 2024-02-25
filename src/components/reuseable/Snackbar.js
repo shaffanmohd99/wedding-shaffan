@@ -59,11 +59,11 @@ export default function Snackbar({
                     )}
                   </div>
                   <div className="ml-3  flex-1 pt-0.5">
-                    <p className="text-sub1  text-white">{message}</p>
+                    <p className="text-sub1  text-textLight">{message}</p>
                   </div>
                   <div className="ml-4 flex flex-shrink-0">
                     <button
-                      className=" inline-flex rounded-md text-white  focus:outline-none  "
+                      className=" inline-flex rounded-md text-textLight  focus:outline-none  "
                       // onClick={() => {
                       //   setShow(false);
                       // }}

@@ -33,43 +33,43 @@ export default function HomePage() {
 
   return (
     // h-screen max-h-screen for if one it to be the length of a single page
-    <div className="relative  overflow-x-hidden  bg-[#faf7f2]">
+    <div className="relative  overflow-x-hidden  bg-mainBg">
       {/* first page */}
       {/* add h-screen for single page  */}
       <div className="w-full  ">
         <div className="p-4">
           <div className="pt-8">
-            {/* <Typography variant="h3" className="text-[#332117] text-center">
+            {/* <Typography variant="h3" className="text-textMain text-center">
               {` Copywriting  juga di sini `}
             </Typography> */}
             <div className="flex flex-col">
               <Typography
                 variant="body"
-                className="text-[#332117] mt-2 text-center"
+                className="text-textMain mt-2 text-center"
               >
                 Bismillahirrahmanirrahim Assalamualaikum WBT
               </Typography>
               <Typography
                 variant="body"
-                className="text-[#332117] font-bold text-center"
+                className="text-textMain font-bold text-center"
               >
                 Haji Roslan Mohamad <span className="text-[10px]">S.M.K.</span>
               </Typography>
               <Typography
                 variant="body"
-                className="text-[#332117] font-bold text-center "
+                className="text-textMain font-bold text-center "
               >
                 &
               </Typography>
               <Typography
                 variant="body"
-                className="text-[#332117] font-bold text-center "
+                className="text-textMain font-bold text-center "
               >
                 Hajah Siti Badarny Shamsai&apos;fah Hassan
               </Typography>
               <Typography
                 variant="body"
-                className="text-[#332117] text-center mt-2 "
+                className="text-textMain text-center mt-2 "
               >
                 Dengan penuh rasa kesyukuran, sukacita menjemput Tan Sri |
                 Dato&apos; Sri | Dato&apos; | Datin | Tuan | Puan ke Majlis
@@ -78,19 +78,19 @@ export default function HomePage() {
               <div className={`${great_vibes.className}`}>
                 <Typography
                   variant="h1"
-                  className="text-[#172733]  text-center mt-2 font-bold"
+                  className="text-textSecondary text-center mt-2 font-bold"
                 >
                   Nur Basyirah Roslan
                 </Typography>
                 <Typography
                   variant="h3"
-                  className="text-[#172733]  text-center mt-2 font-bold"
+                  className="text-textSecondary text-center mt-2 font-bold"
                 >
                   &
                 </Typography>
                 <Typography
                   variant="h1"
-                  className="text-[#172733] text-center  font-bold"
+                  className="text-textSecondary text-center  font-bold"
                 >
                   Norshaffan Mohd
                 </Typography>
@@ -99,7 +99,7 @@ export default function HomePage() {
             <div className="mt-20">
               {/* <Typography
                 variant="body"
-                className="text-[#332117] pt-8 font-semibold pb-4 "
+                className="text-textMain pt-8 font-semibold pb-4 "
               >
                 Let us know if you are coming
               </Typography> */}
@@ -111,7 +111,7 @@ export default function HomePage() {
             {/* <div>
               <Typography
                 variant="body"
-                className="text-[#332117] pt-8 font-semibold pb-4"
+                className="text-textMain pt-8 font-semibold pb-4"
               >
                 Countdown To Our Big Day
               </Typography>
@@ -153,14 +153,14 @@ export default function HomePage() {
                 >
                   <div className="flex gap-4 items-center justify-center flex-col">
                     <BsCalendarEventFill
-                      className="text-[#f4eee0] "
+                      className="text-textLight "
                       size={32}
                     />
                     <div className="flex flex-col items-center">
-                      <Typography variant="h5" className=" text-white">
+                      <Typography variant="h5" className=" text-textLight">
                         Sabtu,
                       </Typography>
-                      <Typography variant="h5" className="text-white">
+                      <Typography variant="h5" className="text-textLight">
                         27 Apr 2024
                       </Typography>
                     </div>
@@ -183,12 +183,12 @@ export default function HomePage() {
               >
                 <Card maxWidth="w-full h-full" padding="px-2 py-6">
                   <div className="flex gap-4 items-center justify-center flex-col">
-                    <BsClockFill className="text-[#f4eee0] " size={32} />
+                    <BsClockFill className="text-textLight " size={32} />
                     <div className="flex flex-col items-center">
-                      <Typography variant="h5" className=" text-white">
+                      <Typography variant="h5" className=" text-textLight">
                         11:00 AM -
                       </Typography>
-                      <Typography variant="h5" className=" text-white">
+                      <Typography variant="h5" className=" text-textLight">
                         4:00 PM
                       </Typography>
                     </div>
@@ -217,17 +217,17 @@ export default function HomePage() {
                 >
                   <a href="https://waze.com/ul/hw282kz0t2" target="_blank">
                     <div className="flex gap-4 items-center justify-center">
-                      <BsPinMapFill className="text-[#f4eee0] " size={32} />
+                      <BsPinMapFill className="text-textLight " size={32} />
                       <div className="flex flex-col items-center">
-                        <Typography variant="h5" className=" text-white">
+                        <Typography variant="h5" className=" text-textLight">
                           Rinching Terrace,
                         </Typography>
-                        <Typography variant="h5" className="text-white">
+                        <Typography variant="h5" className="text-textLight">
                           Kajang
                         </Typography>
                         <Typography
                           variant="sub"
-                          className="text-white text-center"
+                          className="text-textLight text-center"
                         >
                           (Klik disini untuk lokasi)
                         </Typography>
@@ -240,7 +240,7 @@ export default function HomePage() {
           </div>
           <Typography
             variant="body"
-            className="text-[#332117] pt-8 font-semibold"
+            className="text-textMain pt-8 font-semibold"
           >
             Aturcara Majlis
           </Typography>

@@ -28,8 +28,8 @@ export default function Intenerary() {
               variant="h5"
               className={`  h-[45px] flex items-center  px-2    ${
                 item.name === tab
-                  ? " border-b-2 border-[#bc8c53] text-[#bc8c53] font-bold"
-                  : "text-[#332117]"
+                  ? " border-b-2 border-primary text-primary font-bold"
+                  : "text-textMain"
               }`}
             >
               {item.name}
