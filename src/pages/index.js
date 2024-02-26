@@ -15,6 +15,12 @@ export default function Home() {
           content="11 Mei 2024 | Sungai Long Golf & Country Club, Kajang"
           key="desc"
         />
+        <meta
+          property="og:image"
+          content="/assets/gambarhihi.jpeg" // Replace with the correct path to your image
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
       </Head>
       <div className="w-full max-w-lg">
         <div className="relative w-full h-screen max-h-screen bg-mainBg ">
