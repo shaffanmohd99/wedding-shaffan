@@ -10,11 +10,16 @@ export default function Home() {
     <div className="flex justify-center items-center bg-mainBg  ">
       <Head>
         <title>Walimatul Urus Shaffan & Basyirah</title>
+        <meta property="og:title" content="Walimatul Urus Shaffan & Basyirah" />
         <meta
+          property="og:description"
+          content="11 Mei 2024 | Sungai Long Golf & Country Club, Kajang"
+        />
+        {/* <meta
           name="description"
           content="11 Mei 2024 | Sungai Long Golf & Country Club, Kajang"
           key="desc"
-        />
+        /> */}
         <meta
           property="og:image"
           content="url('/assets/gambarhihi.jpeg')" // Replace with the correct path to your image
