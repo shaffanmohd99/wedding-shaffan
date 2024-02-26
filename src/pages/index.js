@@ -17,7 +17,7 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content="/assets/gambarhihi.jpeg" // Replace with the correct path to your image
+          content="url('/assets/gambarhihi.jpeg')" // Replace with the correct path to your image
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
